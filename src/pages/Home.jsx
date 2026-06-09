@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaReddit, FaArrowRight } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaReddit, FaArrowRight, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import {
@@ -20,6 +20,8 @@ import { FaJava } from "react-icons/fa"
 
 import { personalInfo } from "../data";
 import { personalLinks } from "../data";
+import { experiences } from "../data";
+import { featuredProjects } from "../data";
 
 const stack = [
     { label: "JavaScript", icon: <SiJavascript /> },
@@ -89,6 +91,53 @@ function Home() {
                     </div>
                     ))}
                 </div>
+            </div>
+        </section>
+        <section className="exp-section">
+            <h2>Experience</h2>
+            <div className="timeline">
+                {experiences.map((item) => (
+                    <div key={item.id} className="timeline-item">
+                        <div className="timeline-header" />
+                        <div className="timeline-content">
+                            <a href={item.orgUrl} target="_blank" rel="noreferrer" className="accent">
+                                {item.orgName}
+                            </a>
+                            <h3>{item.role}</h3>
+                            <span className="timeline-duration">{item.duration}</span>
+                            <p className="timeline-desc">{item.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+        <section className="featured-section">
+            <div className="featured-header">
+                <h2><FaStar size={16} /> Featured Projects</h2>
+                <Link to="/projects" className="view-all">View All <FaArrowRight size={12}/></Link>
+            </div>
+            <div className="projects-grid">
+                {featuredProjects.map((project) => (
+                    <a key={project.id} href={project.link} target="_blank" rel="noreferrer" className="project-card">
+                        <div className="project-card-top">
+                            <div className="traffic-lights">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span className="project-stars"><FaStar size={12} /> {project.stars}</span>
+                        </div>
+                        <p className="project-repo">
+                            <span className="accent">{project.repoOwner}</span> / {project.name}
+                        </p>
+                        <p className="project-repo">{project.description}</p>
+                        <div className="project-tags">
+                            {project.tags.map((tag) => (
+                                <span key={tag} className="tag">{tag}</span>
+                            ))}
+                        </div>
+                    </a>
+                ))}
             </div>
         </section>
     </main>
