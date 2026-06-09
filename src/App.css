@@ -41,3 +41,56 @@
 .navbar-links a.active {
   color: var(--text-primary);
 }
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.accent {
+  color: var(--accent-pink);
+}
+
+.hero-bio {
+  color: var(--text-muted);
+  max-width: 580px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.divider {
+  color: var(--border);
+}
+
+.hero-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.hero-links a:hover {
+  color: var(--accent-pink);
+}
+
+.about-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
