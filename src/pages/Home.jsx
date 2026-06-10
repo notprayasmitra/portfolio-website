@@ -24,6 +24,8 @@ import { experiences } from "../data";
 import { featuredProjects } from "../data";
 import { achievements } from "../data";
 
+import Widgets from "../components/Widgets"
+
 const stack = [
     { label: "JavaScript", icon: <SiJavascript /> },
     { label: "TypeScript", icon: <SiTypescript /> },
@@ -170,6 +172,7 @@ function Home() {
                 ))}
             </div>
         </section>
+        <Widgets />
     </main>
   )
 }
