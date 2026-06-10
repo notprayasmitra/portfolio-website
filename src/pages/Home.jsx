@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaReddit, FaArrowRight, FaStar } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaReddit, FaExternalLinkAlt, FaArrowRight, FaTrophy, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import {
@@ -22,6 +22,7 @@ import { personalInfo } from "../data";
 import { personalLinks } from "../data";
 import { experiences } from "../data";
 import { featuredProjects } from "../data";
+import { achievements } from "../data";
 
 const stack = [
     { label: "JavaScript", icon: <SiJavascript /> },
@@ -101,7 +102,7 @@ function Home() {
                         <div className="timeline-header" />
                         <div className="timeline-content">
                             <a href={item.orgUrl} target="_blank" rel="noreferrer" className="accent">
-                                {item.orgName}
+                                {item.orgName} <FaExternalLinkAlt size={11}/>
                             </a>
                             <h3>{item.role}</h3>
                             <span className="timeline-duration">{item.duration}</span>
@@ -137,6 +138,35 @@ function Home() {
                             ))}
                         </div>
                     </a>
+                ))}
+            </div>
+        </section>
+        <section className="achievements-section">
+            <h2>Achievements</h2>
+            <div className="achievements-list">
+                {achievements.map((item) => (
+                    <div key={item.id} className="achievement-item">
+                        <h3><FaTrophy size={14}/> {item.title}</h3>
+                        <div className="achievement-meta">
+                            <span><span className="accent-label">Organization:</span> {item.organization}</span>
+                            <span><span className="accent-label">Rank:</span> {item.rank}</span>
+                            <span><span className="accent-label">Date:</span> {item.date}</span>
+                        </div>
+                        <hr className="achievement-divider" />
+                        <p className="achievement-desc">{item.description}</p>
+                        <div className="achievement-links">
+                            {item.links.github && (
+                                <a href={item.links.github} target="_blank" rel="noreferrer">
+                                    <FaGithub size={13} /> [View Repository]
+                                </a>
+                            )}
+                            {item.links.blog && (
+                                <a href={item.links.blog} target="_blank" rel="noreferrer">
+                                    <FaExternalLinkAlt size={13} /> [Read Blog]
+                                </a>
+                            )}
+                        </div>
+                    </div>
                 ))}
             </div>
         </section>

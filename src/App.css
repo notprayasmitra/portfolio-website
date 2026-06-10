@@ -296,3 +296,69 @@
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
+
+.achievements-section {
+  margin-top: 3rem;
+}
+
+.achievements-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.achievement-item {
+  border-left: 2px solid var(--accent-pink);
+  padding: 0.8rem 1.2rem;
+}
+
+.achievement-item h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.achievement-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.accent-label {
+  color: var(--accent-pink);
+}
+
+.achievement-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.8rem 0;
+}
+
+.achievement-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.achievement-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.achievement-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--accent-pink);
+  text-decoration: none;
+}
+
+.achievement-links a:hover {
+  text-decoration: underline;
+}
