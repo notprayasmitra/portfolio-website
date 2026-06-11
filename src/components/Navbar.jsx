@@ -6,7 +6,6 @@ const navLinks = [
     { label: "Experience", path: "/experience" },
     { label: "Projects", path: "/projects" },
     { label: "Achievements", path: "/achievements" },
-    { label: "Testimonials", path: "/testimonials" },
 ]
 
 function Navbar() {

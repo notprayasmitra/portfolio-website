@@ -43,7 +43,7 @@
 }
 
 .page {
-  max-width: 860px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
@@ -363,84 +363,3 @@
   text-decoration: underline;
 }
 
-.widgets-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 3rem;
-}
-
-.widget {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.widget-title {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-}
-
-.widget-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.widget-count {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent-pink);
-}
-
-.widget-sub {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.book-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: var(--accent-pink);
-  color: #13131f;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  width: fit-content;
-}
-
-.book-btn:hover {
-  opacity: 0.85;
-}
-
-.click-btn {
-  background-color: var(--accent-pink);
-  color: #13131f;
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: "JetBrains Mono", monospace;
-  width: fit-content;
-}
-
-.click-btn:hover {
-  opacity: 0.85;
-}
-
-.leaflet-map {
-  height: 150px;
-  border-radius: 6px;
-  width: 100%;
-}

@@ -1,59 +1,40 @@
 import { useState, useEffect } from "react";
-import { FaCalendar, FaLocationArrow} from "react-icons/fa";
-import { MapContainer, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 
-// Click Me Widget
-function ClickMeWidget() {
-    const [count, setCount] = useState(0)
+import { FaArrowRight } from "react-icons/fa6";
+
+function RecentCommitsWidget() {
+    const [commits, setCommits] = useState;
+
+    useEffect(() => {
+        fetch("")
+            .then((res) => res.json())
+            .then((data) => {
+                const pushEvents = data
+                    .filter((e) => e.type === "PushEvent")
+                    .flatMap((e) =>
+                        e.payload.commits.map((c) => ({
+                            repo: e.repo.name.split("/")[1],
+                            message: c.message,
+                        }))
+                    )
+                    .slice(0, 4)
+                setCommits(pushEvents)
+            })
+    }, [])
 
     return (
         <div className="widget">
-            <p className="widget-count">{count.toLocaleString()}</p>
-            <button className="click-btn" onClick={() => setCount(count + 1)}>
-                CLICK ME
-            </button>
-            <p className="widget-sub">you've clicked {count} times</p>
-        </div>
-    )
-}
-
-// Let's Connect Widget
-function ConnectWidget() {
-    return (
-        <div className="widget">
-            <p className="widget-title"><FaCalendar /> Let's Connect</p>
-            <p className="widget-desc">Always open to interesting projects and conversations.</p>
-            <a href="mailto:notprayasmitra@proton.me" className="book-btn">
-                <FaCalendar /> Book a Chat
+            <p className="widget-title">↯ Recent Commits</p>
+            <div className="commits-list">
+                {commits.map((c, i) => (
+                    <p key={i} className="commit-item">
+                        <span className="accent">{c.repo}:</span> {c.message}
+                    </p>
+                ))}
+            </div>
+            <a href="https://github.com/notprayasmitra" target="_blank" rel="noreferrer" className="widget-link">
+                View on Github <FaArrowRight size={12} />
             </a>
         </div>
     )
 }
-
-// Map Widget
-function MapWidget() {
-    const position = [13.08268, 80.27072]
-
-    return (
-        <div className="widget map-widget">
-           <p className="widget-title"><FaLocationArrow /> Currently Based In</p> 
-           <MapContainer center={position} zoom={11} scrollWheelZoom={true} className="leaflet-map" zoomControl={false}>
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" attribution="" />
-           </MapContainer>
-           <p className="widget-sub">● Chennai, Tamil Nadu</p>
-        </div>
-    )
-}
-
-function Widgets() {
-    return (
-        <div className="widgets-grid">
-            <ConnectWidget />
-            <MapWidget />
-            <ClickMeWidget />
-        </div>
-    )
-}
-
-export default Widgets;
