@@ -8,20 +8,14 @@ function RecentCommitsWidget() {
     const [commits, setCommits] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.github.com/search/commits?q=author:${GITHUB_USERNAME}&sort=committer-date&order=desc&per_page=4`, {
+        fetch(`https://katib.jasoncameron.dev/v2/commits/latest?username=${GITHUB_USERNAME}&limit=4`, {
             headers: { 
                 Authorization: `Bearer ${GITHUB_TOKEN}`,
-                Accept: "application/vnd.github.cloak-preview" 
             }
         })
             .then((res) => res.json())
             .then((data) => {
-                const commits = data.items.map((c) => ({
-                    repo: c.repository.name,
-                    message: c.commit.message,
-                    url: c.html_url,
-                }))
-                setCommits(commits)
+                setCommits(data.commits)
             })
             .catch((err) => console.log("Error:", err))
     }, [])
