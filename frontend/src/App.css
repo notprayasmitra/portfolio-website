@@ -363,13 +363,82 @@
   text-decoration: underline;
 }
 
-/* --- Widgets Grid and Flex Alignment Rules --- */
+.widgets-section {
+  margin-top: 2rem;
+}
+
+.widgets-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.widgets-wrapper {
+  display: contents;
+}
+
+.widgets-top-row,
 .widgets-grid {
   display: grid;
-  grid-template-columns: 60% 40%;
   gap: 1.2rem;
-  margin-top: 3rem;
   align-items: stretch;
+  width: 100%;
+}
+
+.widgets-top-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.widgets-grid {
+  grid-template-columns: 3fr 2fr;
+}
+
+.widgets-top-row .widget-small,
+.widgets-grid .widget {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .widgets-top-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .widgets-top-row .widget-small {
+    grid-column: span 1;
+  }
+
+  .widgets-top-row .widget-small:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .widgets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .widgets-grid .widget {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .widgets-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .widgets-top-row .widget-small {
+    grid-column: 1 / -1;
+  }
+}
+
+.widget-small {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .widget {
@@ -455,18 +524,17 @@
   flex-shrink: 0;
 }
 
-/* --- Flat Bar Layout Context Container --- */
 .language-bar-outer {
   margin-top: 0.1rem;
   width: 100%;
-  position: relative; /* All absolute items are pinned to this container frame */
+  position: relative;
 }
 
 .language-bar {
   display: flex;
   height: 8px;
   width: 100%;
-  border-radius: 8px; /* Sharp corners styling matching your layout */
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -484,11 +552,10 @@
   filter: brightness(1.15) !important;
 }
 
-/* --- Clean Pop-up Dialog Box Component --- */
 .language-tooltip {
   position: absolute;
-  bottom: 20px; /* Floating clearance margin right above the track */
-  transform: translateX(-50%); /* Keeps it centered over our calculation midpoint */
+  bottom: 20px;
+  transform: translateX(-50%);
   background-color: #1f242c;
   border: 1px solid #30363d;
   padding: 0.4rem 0.8rem;
@@ -497,12 +564,11 @@
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
-  pointer-events: none; /* Avoids flickering loops during transitions */
+  pointer-events: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   z-index: 20;
 }
 
-/* Dynamic Inner Dot Marker */
 .tooltip-dot {
   width: 8px;
   height: 8px;
@@ -511,13 +577,12 @@
   flex-shrink: 0;
 }
 
-/* Label Alignment */
 .tooltip-text {
   font-family: monospace;
   font-size: 0.8rem;
   color: #c9d1d9;
   display: flex;
-  gap: 1.5rem; /* Generates clean spacing between label string and percentage metadata */
+  gap: 1.5rem;
 }
 
 .tooltip-percentage {

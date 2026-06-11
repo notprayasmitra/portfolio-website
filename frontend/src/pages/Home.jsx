@@ -23,6 +23,8 @@ import { personalLinks } from "../data";
 import { experiences } from "../data";
 import { featuredProjects } from "../data";
 import { achievements } from "../data";
+
+import GitHubWidgets from "../components/GitHubWidgets";
 import Widgets from "../components/Widgets";
 
 const stack = [
@@ -171,8 +173,11 @@ function Home() {
                 ))}
             </div>
         </section>
-        <section>
-            <Widgets />
+        <section className="widgets-section">
+            <div className="widgets-layout">
+                <Widgets />
+                <GitHubWidgets />
+            </div>
         </section>
     </main>
   )
