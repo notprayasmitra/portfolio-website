@@ -363,13 +363,13 @@
   text-decoration: underline;
 }
 
-/* Widgets */
-
+/* --- Widgets Grid and Flex Alignment Rules --- */
 .widgets-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
   margin-top: 3rem;
+  align-items: stretch;
 }
 
 .widget {
@@ -383,6 +383,7 @@
 }
 
 .widget-title {
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -390,10 +391,20 @@
   color: var(--text-primary);
 }
 
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
 .widget-link {
   font-size: 0.8rem;
   color: var(--accent-purple);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .widget-link:hover {
@@ -418,6 +429,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  width: 100%;
 }
 
 .repo-item {
@@ -425,9 +437,89 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.repo-item a.accent {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
 }
 
 .widget-sub {
   font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap; 
+  flex-shrink: 0;
+}
+
+/* --- Flat Bar Layout Context Container --- */
+.language-bar-outer {
+  margin-top: 0.1rem;
+  width: 100%;
+  position: relative; /* All absolute items are pinned to this container frame */
+}
+
+.language-bar {
+  display: flex;
+  height: 8px;
+  width: 100%;
+  border-radius: 8px; /* Sharp corners styling matching your layout */
+  overflow: hidden;
+}
+
+.language-progress {
+  height: 100%;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.language-bar:hover .language-progress {
+  filter: brightness(0.85);
+}
+
+.language-progress:hover {
+  filter: brightness(1.15) !important;
+}
+
+/* --- Clean Pop-up Dialog Box Component --- */
+.language-tooltip {
+  position: absolute;
+  bottom: 20px; /* Floating clearance margin right above the track */
+  transform: translateX(-50%); /* Keeps it centered over our calculation midpoint */
+  background-color: #1f242c;
+  border: 1px solid #30363d;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  pointer-events: none; /* Avoids flickering loops during transitions */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+}
+
+/* Dynamic Inner Dot Marker */
+.tooltip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Label Alignment */
+.tooltip-text {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #c9d1d9;
+  display: flex;
+  gap: 1.5rem; /* Generates clean spacing between label string and percentage metadata */
+}
+
+.tooltip-percentage {
+  color: #8b949e;
 }
