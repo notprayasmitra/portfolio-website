@@ -23,6 +23,7 @@ import { personalLinks } from "../data";
 import { experiences } from "../data";
 import { featuredProjects } from "../data";
 import { achievements } from "../data";
+import Widgets from "../components/Widgets";
 
 const stack = [
     { label: "JavaScript", icon: <SiJavascript /> },
@@ -170,6 +171,7 @@ function Home() {
                 ))}
             </div>
         </section>
+        <Widgets />
     </main>
   )
 }

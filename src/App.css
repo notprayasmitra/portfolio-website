@@ -43,7 +43,7 @@
 }
 
 .page {
-  max-width: 950px;
+  max-width: 1050px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
@@ -363,3 +363,71 @@
   text-decoration: underline;
 }
 
+/* Widgets */
+
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.widget {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.widget-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.widget-link {
+  font-size: 0.8rem;
+  color: var(--accent-purple);
+  text-decoration: none;
+}
+
+.widget-link:hover {
+  text-decoration: underline;
+}
+
+.commits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.commit-item {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.repo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.widget-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
