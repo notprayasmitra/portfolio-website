@@ -171,7 +171,9 @@ function Home() {
                 ))}
             </div>
         </section>
-        <Widgets />
+        <section>
+            <Widgets />
+        </section>
     </main>
   )
 }
