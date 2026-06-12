@@ -323,3 +323,30 @@
 .language-info:hover .lang-info-tooltip {
     display: flex;
 }
+
+.connect-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.book-chat-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--accent-pink);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--accent-pink);
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    width: 100%;
+}
+
+.book-chat-btn:hover {
+    background-color: var(--accent-pink);
+    color: var(--bg-primary);
+}
