@@ -1,0 +1,43 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-primary);
+  z-index: 100;
+}
+
+.navbar-brand {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--accent-pink);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--text-primary);
+}

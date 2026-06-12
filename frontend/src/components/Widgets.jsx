@@ -1,3 +1,5 @@
+import "../styles/components/homepage-widgets.css"
+
 function Widgets() {
     return (
         <div className="widgets-wrapper">

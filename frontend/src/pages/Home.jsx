@@ -1,3 +1,7 @@
+import "../styles/pages/home.css";
+import "../styles/components/featured-projects.css";
+import "../styles/components/tech-stack.css";
+
 import { FaGithub, FaLinkedin, FaReddit, FaExternalLinkAlt, FaArrowRight, FaTrophy, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -25,6 +29,7 @@ import { featuredProjects } from "../data";
 import { achievements } from "../data";
 
 import GitHubWidgets from "../components/GitHubWidgets";
+import BackupWidgets from "../components/BackupWidgets";
 import Widgets from "../components/Widgets";
 
 const stack = [
@@ -177,6 +182,7 @@ function Home() {
             <div className="widgets-layout">
                 <Widgets />
                 <GitHubWidgets />
+                <BackupWidgets />
             </div>
         </section>
     </main>

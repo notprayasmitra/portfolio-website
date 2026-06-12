@@ -1,0 +1,39 @@
+.tech-section {
+  margin-top: 3rem;
+}
+
+/* Design for basic flex layout in Homepage */
+
+/*
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+*/
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.tech-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tech-item svg {
+  font-size: 1.2rem;
+}

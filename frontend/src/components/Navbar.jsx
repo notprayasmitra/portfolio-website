@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import "../styles/navbar.css";
 
 const navLinks = [
     { label: "Home", path: "/" },

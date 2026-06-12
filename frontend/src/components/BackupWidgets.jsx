@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 
-import "../styles/components/homepage-widgets.css"
+import "../styles/components/backup-widgets.css"
 
 const GITHUB_COLORS = {
     TypeScript: "#3178c6",
@@ -128,7 +128,7 @@ function LatestReposWidget() {
     );
 }
 
-function GitHubWidgets() {
+function BackupWidgets() {
     return (
         <div className="widgets-grid">
             <RecentCommitsWidget />
@@ -137,4 +137,4 @@ function GitHubWidgets() {
     );
 }
 
-export default GitHubWidgets;
+export default BackupWidgets;

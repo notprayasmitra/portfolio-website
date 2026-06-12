@@ -1,3 +1,5 @@
+import "../styles/pages/experience.css"
+
 function Experience() {
   return <div>Experience</div>
 }
