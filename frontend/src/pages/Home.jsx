@@ -121,7 +121,7 @@ function Home() {
         </section>
         <section className="featured-section">
             <div className="featured-header">
-                <h2><FaStar size={16} /> Featured Projects</h2>
+                <h2>Featured Projects</h2>
                 <Link to="/projects" className="view-all">View All <FaArrowRight size={12}/></Link>
             </div>
             <div className="projects-grid">

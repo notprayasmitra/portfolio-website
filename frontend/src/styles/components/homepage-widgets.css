@@ -306,8 +306,8 @@
 
 .lang-info-tooltip {
     position: absolute;
-    top: calc(100% + 6px);  /* drop DOWN from the icon */
-    right: 0;               /* align to the right edge of the icon */
+    top: calc(100% + 6px);
+    right: 0;
     background: var(--surface, #1e1e2e);
     border: 1px solid var(--border, #313244);
     border-radius: 6px;
@@ -349,4 +349,50 @@
 .book-chat-btn:hover {
     background-color: var(--accent-pink);
     color: var(--bg-primary);
+}
+
+.location-widget {
+    padding: 1.2rem;
+    overflow: hidden;
+    gap: 0.8rem;
+}
+
+.location-widget .widget-title {
+    padding: 0 0 0.2rem 0;
+    font-size: 0.85rem;
+}
+
+.location-map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.location-map-wrapper .leaflet-container {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    z-index: 0;
+    border-radius: 8px;
+    background: var(--bg-secondary); /* those annoying thin white spaces in the map container are hidden using this */
+    filter: brightness(0.85) contrast(1.1); /* control the monochrome theme options of the map from here */
+}
+
+.location-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    font-size: 0.8rem;
+    border-top: none;
+}
+
+.location-city { color: var(--text-muted); }
+
+.location-time {
+    color: var(--accent-pink);
+    font-family: monospace;
+    letter-spacing: 0.05em;
 }
