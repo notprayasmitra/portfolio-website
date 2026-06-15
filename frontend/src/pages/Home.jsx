@@ -169,7 +169,7 @@ function Home() {
                             )}
                             {item.links.blog && (
                                 <a href={item.links.blog} target="_blank" rel="noreferrer">
-                                    <FaExternalLinkAlt size={13} /> [Read Blog]
+                                    <FaExternalLinkAlt size={13} /> [Reference]
                                 </a>
                             )}
                         </div>
