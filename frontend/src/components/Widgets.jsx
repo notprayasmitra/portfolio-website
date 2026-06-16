@@ -35,15 +35,23 @@ function ThemeWidget() {
 
             {/* Flavor tabs */}
             <div className="theme-tabs">
-                {Object.keys(themes).map((name) => (
-                    <button
-                        key={name}
-                        className={`theme-tab ${activeTheme === name ? "active" : ""}`}
-                        onClick={() => applyTheme(name, activeAccent)}
-                    >
-                        {name}
-                    </button>
-                ))}
+                <div className="theme-tabs-row">
+                    {["Latte", "Frappe", "Macchiato"].map((name) => (
+                        <button
+                            key={name}
+                            className={`theme-tab ${activeTheme === name ? "active" : ""}`}
+                            onClick={() => applyTheme(name, activeAccent)}
+                        >
+                            {name}
+                        </button>
+                    ))}
+                </div>
+                <button
+                    className={`theme-tab theme-tab-full ${activeTheme === "Mocha" ? "active" : ""}`}
+                    onClick={() => applyTheme("Mocha", activeAccent)}
+                >
+                    Mocha
+                </button>
             </div>
 
             {/* Accent swatches */}

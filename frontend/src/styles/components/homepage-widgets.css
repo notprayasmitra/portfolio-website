@@ -328,7 +328,7 @@
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.5;
-    margin: 0;
+    margin: 0 0 1rem 0;
 }
 
 .book-chat-btn {
@@ -399,12 +399,23 @@
 
 /* Theme tabs */
 .theme-tabs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 0.3rem;
     background-color: var(--bg-primary);
     border-radius: 6px;
     padding: 0.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.theme-tabs-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+}
+
+.theme-tab-full {
+    width: 100%;
 }
 
 .theme-tab {
@@ -435,6 +446,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.4rem;
+    margin-top: 0.6rem;
 }
 
 .accent-swatch {
