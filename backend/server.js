@@ -9,28 +9,62 @@ app.use(cors({ origin: "http://localhost:3000" }));
 
 app.get("/api/commits", async (req, res) => {
     try {
-        const response = await fetch(
-            `https://katib.jasoncameron.dev/commits/latest?username=${process.env.GITHUB_USERNAME}`,
-            { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
-        );
-        const data = await response.json();
+        const query = `
+            query ($username: String!) {
+                user(login: $username) {
+                    repositories(first: 4, orderBy: { field: PUSHED_AT, direction: DESC }, privacy: PUBLIC, isFork: false) {
+                        nodes {
+                            name
+                            url
+                            defaultBranchRef {
+                                target {
+                                    ... on Commit {
+                                        history(first: 1) {
+                                            nodes {
+                                                messageHeadline
+                                                commitUrl
+                                                additions
+                                                deletions
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        `;
 
-        const latest = {
-            repo: data.repo?.split("/")[1] || "repo",
-            message: data.messageHeadline,
-            url: data.commitUrl,
-            additions: data.additions,
-            deletions: data.deletions,
-        };
-        const parents = (data.parentCommits || []).map((c) => ({
-            repo: data.repo?.split("/")[1] || "repo",
-            message: c.messageHeadline,
-            url: c.commitUrl,
-            additions: c.additions,
-            deletions: c.deletions,
-        }));
+        const response = await fetch("https://api.github.com/graphql", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query,
+                variables: { username: process.env.GITHUB_USERNAME },
+            }),
+        });
 
-        res.json([latest, ...parents]);
+        const { data, errors } = await response.json();
+        if (errors) return res.status(500).json({ error: errors[0].message });
+
+        const commits = data.user.repositories.nodes
+            .filter((repo) => repo.defaultBranchRef?.target?.history?.nodes?.length > 0)
+            .map((repo) => {
+                const commit = repo.defaultBranchRef.target.history.nodes[0];
+                return {
+                    repo: repo.name,
+                    message: commit.messageHeadline,
+                    url: commit.commitUrl,
+                    additions: commit.additions,
+                    deletions: commit.deletions,
+                };
+            });
+
+        res.json(commits);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

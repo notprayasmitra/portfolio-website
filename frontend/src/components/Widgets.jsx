@@ -5,14 +5,19 @@ import "../styles/components/homepage-widgets.css";
 import { themes, accentColors } from "../data/themes";
 
 function ThemeWidget() {
-    const [activeTheme, setActiveTheme] = useState("Mocha");
-    const [activeAccent, setActiveAccent] = useState("#e8789a");
+    const [activeTheme, setActiveTheme] = useState(() => {
+        if (typeof window !== "undefined") {
+            return localStorage.getItem("theme") || "Mocha";
+        }
+        return "Mocha";
+    });
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") || "Mocha";
-        const savedAccent = localStorage.getItem("accent") || "#e8789a";
-        applyTheme(savedTheme, savedAccent);
-    }, []);
+    const [activeAccent, setActiveAccent] = useState(() => {
+        if (typeof window !== "undefined") {
+            return localStorage.getItem("accent") || "#e8789a";
+        }
+        return "#e8789a";
+    });
 
     function applyTheme(themeName, accent) {
         const vars = themes[themeName];
