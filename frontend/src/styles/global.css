@@ -1,14 +1,3 @@
-:root {
-  --bg-primary: #13131f;
-  --bg-secondary: #1c1c2e;
-  --bg-card: #22223a;
-  --accent-pink: #e8789a;
-  --accent-purple: #a78bfa;
-  --text-primary: #e2e2f0;
-  --text-muted: #8888aa;
-  --border: #2e2e4a;
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

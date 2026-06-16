@@ -396,3 +396,62 @@
     font-family: monospace;
     letter-spacing: 0.05em;
 }
+
+/* Theme tabs */
+.theme-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
+    background-color: var(--bg-primary);
+    border-radius: 6px;
+    padding: 0.3rem;
+}
+
+.theme-tab {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.theme-tab:hover {
+    color: var(--text-primary);
+}
+
+.theme-tab.active {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+/* Accent swatches */
+.accent-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.4rem;
+}
+
+.accent-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.1s ease, border-color 0.15s ease;
+    padding: 0;
+}
+
+.accent-swatch:hover {
+    transform: scale(1.1);
+}
+
+.accent-swatch.active {
+    border-color: var(--text-primary);
+    border-radius: 8px;
+}

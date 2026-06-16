@@ -1,7 +1,66 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { FaCalendar, FaLocationArrow, FaSun, FaMoon } from "react-icons/fa6";
+import { FaCalendar, FaLocationArrow, FaSun, FaMoon, FaPalette } from "react-icons/fa6";
 import "../styles/components/homepage-widgets.css";
+import { themes, accentColors } from "../data/themes";
+
+function ThemeWidget() {
+    const [activeTheme, setActiveTheme] = useState("Mocha");
+    const [activeAccent, setActiveAccent] = useState("#e8789a");
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "Mocha";
+        const savedAccent = localStorage.getItem("accent") || "#e8789a";
+        applyTheme(savedTheme, savedAccent);
+    }, []);
+
+    function applyTheme(themeName, accent) {
+        const vars = themes[themeName];
+        if (!vars) return;
+        const root = document.documentElement;
+        Object.entries(vars).forEach(([key, val]) => {
+            root.style.setProperty(key, val);
+        });
+        root.style.setProperty("--accent-pink", accent);
+        root.style.setProperty("--accent-purple", accent + "cc"); // slight variant
+        setActiveTheme(themeName);
+        setActiveAccent(accent);
+        localStorage.setItem("theme", themeName);
+        localStorage.setItem("accent", accent);
+    }
+
+    return (
+        <div className="widget-small">
+            <p className="widget-title"><FaPalette /> Theme</p>
+
+            {/* Flavor tabs */}
+            <div className="theme-tabs">
+                {Object.keys(themes).map((name) => (
+                    <button
+                        key={name}
+                        className={`theme-tab ${activeTheme === name ? "active" : ""}`}
+                        onClick={() => applyTheme(name, activeAccent)}
+                    >
+                        {name}
+                    </button>
+                ))}
+            </div>
+
+            {/* Accent swatches */}
+            <div className="accent-grid">
+                {accentColors.map((color) => (
+                    <button
+                        key={color}
+                        className={`accent-swatch ${activeAccent === color ? "active" : ""}`}
+                        style={{ backgroundColor: color }}
+                        onClick={() => applyTheme(activeTheme, color)}
+                        title={color}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
 
 function LocationWidget() {
     const [time, setTime] = useState("");
@@ -65,13 +124,7 @@ function Widgets() {
     return (
         <div className="widgets-wrapper">
             <div className="widgets-top-row">
-                <div className="widget-small">
-                    <p className="widget-title">✦ Widget One</p>
-                    <div className="widget-content">
-                        <p className="commit-item"><span className="accent">Hello World!</span> Text</p>
-                        <p className="commit-item"><span className="accent">Lorem</span> ipsum...</p>
-                    </div>
-                </div>
+                <ThemeWidget />
 
                 <div className="widget-small">
                     <p className="widget-title"><FaCalendar /> Let's Connect</p>

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import "../styles/components/homepage-widgets.css";
 
+import { FaAnchor, FaArrowTrendUp } from "react-icons/fa6";
+
 function getPositionedLanguages(languages) {
     let currentLeft = 0;
     return languages.map(({ lang, percentage, color }) => {
@@ -31,7 +33,7 @@ function RecentCommitsWidget() {
     return (
         <div className="widget">
             <div className="widget-header">
-                <p className="widget-title">↯ Recent Commits</p>
+                <p className="widget-title"><FaArrowTrendUp size={13}/> Recent Commits</p>
                 <a href="https://github.com/notprayasmitra" target="_blank" rel="noreferrer" className="widget-link">
                     View on Github <FaArrowRight size={12} />
                 </a>
@@ -78,7 +80,7 @@ function LatestReposWidget() {
     return (
         <div className="widget">
             <div className="widget-header">
-                <p className="widget-title">⊟ Latest Repos</p>
+                <p className="widget-title"><FaAnchor size={13} /> Latest Repos</p>
                 <div className="language-info">
                     <span className="lang-info-icon">ⓘ</span>
                     <div className="lang-info-tooltip">
