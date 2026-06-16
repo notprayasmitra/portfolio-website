@@ -104,7 +104,7 @@ function TimelineLeft({ progress, activeIndex }) {
                     y1={startY}
                     x2={targetX}
                     y2={endY}
-                    stroke="var(--accent, #a8ff78)"
+                    stroke="var(--accent-purple)"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     pathLength="1"
@@ -112,7 +112,7 @@ function TimelineLeft({ progress, activeIndex }) {
                         strokeDasharray: 1,
                         strokeDashoffset: 1 - progress,
                         transition: "stroke-dashoffset 0.12s linear",
-                        filter: "drop-shadow(0 0 4px var(--accent, #a8ff78))",
+                        filter: "drop-shadow(0 0 4px var(--accent-pink))",
                     }}
                 />
 
@@ -138,7 +138,7 @@ function TimelineLeft({ progress, activeIndex }) {
                                     cy={y}
                                     r="10"
                                     fill="none"
-                                    stroke="var(--accent, #a8ff78)"
+                                    stroke="var(--accent-purple)"
                                     strokeWidth="1.25"
                                     className="pulse-ring"
                                 />
@@ -149,8 +149,8 @@ function TimelineLeft({ progress, activeIndex }) {
                                 cx={targetX}
                                 cy={y}
                                 r={isActive ? 6 : 4}
-                                fill={isPassed ? "var(--accent, #a8ff78)" : "var(--bg-secondary, #13131e)"}
-                                stroke={isPassed ? "var(--accent, #a8ff78)" : "var(--border, #222235)"}
+                                fill={isPassed ? "var(--accent-purple)" : "var(--accent-purple, #13131e)"}
+                                stroke={isPassed ? "var(--accent-purple)" : "var(--accent-purple, #222235)"}
                                 strokeWidth="2"
                                 style={{
                                     transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -162,7 +162,7 @@ function TimelineLeft({ progress, activeIndex }) {
                                 x={targetX + 22}
                                 y={y - 2}
                                 className="svg-label-org"
-                                fill={isActive ? "var(--accent, #a8ff78)" : "var(--text-muted, #6b7280)"}
+                                fill={isActive ? "var(--accent-pink)" : "var(--accent-purple, #6b7280)"}
                             >
                                 {shortOrg}
                             </text>
@@ -201,6 +201,20 @@ function Experience() {
         };
         track.addEventListener("scroll", handleScroll, { passive: true });
 
+        // NEW: Intercept vertical wheel scroll and translate it horizontally
+        const handleWheel = (e) => {
+            // e.deltaY is positive when scrolling down, negative when scrolling up
+            if (e.deltaY !== 0) {
+                e.preventDefault(); // Prevents the main page body from scrolling up/down
+                track.scrollBy({
+                    left: e.deltaY * 1.2, // Multiply to tweak scroll sensitivity speed
+                    behavior: "auto"       // "auto" prevents stuttering during rapid wheel inputs
+                });
+            }
+        };
+        // Crucial: passive must be false so e.preventDefault() actually works
+        track.addEventListener("wheel", handleWheel, { passive: false });
+
         // Use IntersectionObserver to detect which card is actually visible
         const cards = Array.from(track.querySelectorAll(".exp-card"));
         const observer = new IntersectionObserver(
@@ -214,17 +228,28 @@ function Experience() {
             },
             {
                 root: track,         // observe within the scroll track
-                threshold: 0.9,      // card must be 90% visible to activate
+                threshold: 0.7,      // card must be 70% visible to activate
             }
         );
 
         cards.forEach((card) => observer.observe(card));
 
+        // Cleanup listeners on component unmount
         return () => {
             track.removeEventListener("scroll", handleScroll);
+            track.removeEventListener("wheel", handleWheel); // NEW: Clean up wheel listener
             observer.disconnect();
         };
     }, []);
+
+    const scrollToCard = (index) => {
+        if (!trackRef.current) return;
+        const cardWidth = trackRef.current.scrollWidth / experienceData.length;
+        trackRef.current.scrollTo({
+            left: index * cardWidth,
+            behavior: "smooth"
+        });
+    };
 
     return (
         <main className="page experience-page">
@@ -234,7 +259,7 @@ function Experience() {
                 </div>
                 <div className="exp-right">
                     <h2 className="exp-right-title">
-                        Experience — Scroll for more <FaArrowRight size={16} />
+                        Experience
                     </h2>
                     <div className="exp-cards-track" ref={trackRef}>
                         {experienceData.map((item, idx) => (
@@ -262,6 +287,21 @@ function Experience() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                    <div className="track-controls-bar">
+                        <div className="pagination-indicators">
+                            {experienceData.map((_, i) => (
+                                <button 
+                                    key={i} 
+                                    aria-label={`Go to slide ${i + 1}`}
+                                    className={`dot ${i === activeIndex ? "dot--active" : ""}`}
+                                    onClick={() => scrollToCard(i)}
+                                />
+                            ))}
+                        </div>
+                        <div className="scroll-hint-text">
+                            Scroll or click dots to explore <FaArrowRight size={11} />
+                        </div>
                     </div>
                 </div>
             </div>

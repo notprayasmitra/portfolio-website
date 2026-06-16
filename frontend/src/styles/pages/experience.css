@@ -1,7 +1,7 @@
 /* Core Structural Grid Layout */
 
 .experience-page {
-    height: 90vh;
+    height: 93vh;
     overflow: hidden;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .exp-right-title {
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: var(--text-primary, #ffffff);
     margin: 0;
     display: flex;
@@ -122,7 +122,7 @@
 }
 
 .exp-card:hover {
-    border-color: var(--accent-pink, #ff758f);
+    border-color: var(--accent-pink);
 }
 
 .exp-card-header {
@@ -150,7 +150,7 @@
 .exp-card-org {
     font-size: 1rem;
     text-decoration: none;
-    color: var(--accent, #a8ff78);
+    color: var(--accent-pink);
     font-weight: 500;
     align-self: flex-start;
 }
@@ -186,7 +186,7 @@
     content: "•";
     position: absolute;
     left: 0;
-    color: var(--accent, #a8ff78);
+    color: var(--accent-pink);
     font-size: 1.1rem;
     top: -1px;
 }
@@ -228,4 +228,131 @@
     .exp-left {
         display: none;
     }
+}
+
+/* ==========================================================================
+   NEW ADDITIONS: Side Dashboard, Header Terminal, and Carousel Navigation Controls
+   ========================================================================== */
+
+/* 1. Left Sidebar Core Extras Box */
+.exp-left {
+    flex-direction: column; /* Stack timeline and metadata cards on top of each other */
+    gap: 1.5rem;
+}
+
+.exp-side-metrics {
+    width: 100%;
+    max-width: 220px;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border, #222235);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.metric-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.metric-accent {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-family: monospace;
+    color: var(--accent-pink);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.metric-text {
+    font-size: 0.8rem;
+    color: var(--text-muted, #7c7c93);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.focus-sectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.sector-chip {
+    font-size: 0.68rem;
+    font-family: monospace;
+    background: rgba(168, 255, 120, 0.03);
+    border: 1px solid rgba(168, 255, 120, 0.15);
+    color: var(--accent-pink);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* 2. Top-Right Dynamic Intro Title Block */
+.exp-header-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.terminal-prefix {
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: var(--accent-pink, #ff758f);
+    opacity: 0.75;
+}
+
+.index-counter {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: var(--text-muted, #4b5563);
+    margin-left: 0.5rem;
+    font-weight: 400;
+}
+
+/* 3. Bottom Track Controls & Pagination Interface Strip */
+.track-controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.25rem;
+    padding: 0 0.25rem;
+}
+
+.pagination-indicators {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.pagination-indicators .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border, #222235);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pagination-indicators .dot:hover {
+    background: var(--text-muted, #6b7280);
+}
+
+.pagination-indicators .dot--active {
+    background: var(--accent-pink);
+    width: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(168, 255, 120, 0.4);
+}
+
+.scroll-hint-text {
+    font-size: 0.72rem;
+    font-family: monospace;
+    color: var(--text-muted, #4b5563);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
 }
