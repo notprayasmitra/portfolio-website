@@ -7,14 +7,14 @@ const experienceData = [
         id: 1,
         role: "Software Engineer Intern",
         org: "Indian Oil Corporation Ltd. (IOCL)",
-        orgUrl: "https://iocl.com",
+        orgUrl: "#",
         duration: "May 2026 – Ongoing",
         description: [
             "Built and maintained core UI components for the Noctalia shell project.",
             "Developed REST APIs using ASP.NET and C#.",
             "Managed database schemas and queries in MySQL.",
         ],
-        tags: [".NET", "ASP.NET", "C#", "SOAP APIs", "MySQL", "IIS"],
+        tags: ["React", "Next.js", "Node.js", "Express.js", "BetterAuth", "REST APIs", "PostgreSQL", "MongoDB"],
     },
     {
         id: 2,
@@ -83,7 +83,7 @@ function TimelineLeft({ progress, activeIndex }) {
         <div className="timeline-container">
             <svg
                 className="timeline-svg"
-                viewBox="0 0 180 400"
+                viewBox="0 0 200 400"
                 preserveAspectRatio="xMidYMid meet"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -256,11 +256,35 @@ function Experience() {
             <div className="exp-page-layout">
                 <div className="exp-left">
                     <TimelineLeft progress={progress} activeIndex={activeIndex} />
+
+                    <div className="exp-side-metrics">
+                        {/* Section 1: Active Focus */}
+                        <div className="metric-box">
+                            <span className="metric-accent">Active Focus</span>
+                            <p className="metric-text">Full-Stack Architectures, Distributed APIs & Shell Scripts Contributor</p>
+                        </div>
+                        
+                        {/* Section 2: Milestones */}
+                        <div className="metric-box">
+                            {/* FIXED: Heading is now outside the chips flex wrapper */}
+                            <span className="metric-accent">Milestones</span>
+                            
+                            {/* The chips are neatly bundled together in their own container */}
+                            <div className="focus-sectors" style={{ marginTop: "0.5rem" }}>
+                                <span className="sector-chip">2 Internships</span>
+                                <span className="sector-chip">2 Leadership Initiatives</span>
+                                <span className="sector-chip">1 Open Source Contribution</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="exp-right">
-                    <h2 className="exp-right-title">
-                        Experience
-                    </h2>
+                    <div className="exp-header-block">
+                        <h2 className="exp-right-title">
+                            Experience
+                            <span className="index-counter">({activeIndex + 1}/{experienceData.length})</span>
+                        </h2>
+                    </div>
                     <div className="exp-cards-track" ref={trackRef}>
                         {experienceData.map((item, idx) => (
                             <div
