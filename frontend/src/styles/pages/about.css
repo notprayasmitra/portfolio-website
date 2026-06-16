@@ -37,7 +37,15 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.timeline-block-year {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
   color: var(--text-primary);
 }
 
