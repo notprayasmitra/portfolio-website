@@ -22,7 +22,6 @@ import {
 } from "react-icons/si"
 import { FaJava } from "react-icons/fa"
 
-import { personalInfo } from "../data";
 import { personalLinks } from "../data";
 import { experiences } from "../data";
 import { featuredProjects } from "../data";
@@ -52,8 +51,8 @@ function Home() {
   return (
     <main className="page">
         <section className="hero">
-            <h1>Hey! I'm <span className="accent">{personalInfo.name}</span></h1>
-            <p className="hero-bio">{personalInfo.bio}</p>
+            <h1>Hey! I'm <span className="accent">Prayas Mitra</span></h1>
+            <p className="hero-bio">I'm currently a CS undergrad, a developer, and a student leader keen on building software, communities, and exploring new technologies that create value for people. I've written software that is trusted by the group of developers working on{" "}<a href="https://noctalia.dev" target="_blank" rel="noreferrer" className="hero-bio-link">Noctalia Shell</a>{" "}. Currently working on an AI Agent that automates everyday tasks.</p>
             <div className="hero-links">
                 <a href={personalLinks.github} target="_blank" rel="noreferrer"><FaGithub />GitHub</a>
                 <span className="divider">|</span>

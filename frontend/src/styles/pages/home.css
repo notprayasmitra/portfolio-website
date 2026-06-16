@@ -10,9 +10,17 @@
 
 .hero-bio {
   color: var(--text-muted);
-  max-width: 580px;
+  max-width: 730px;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+}
+
+.hero-bio-link {
+  color: var(--accent-pink);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  font-style: italic;
+  font-size: medium;
 }
 
 .hero-links {

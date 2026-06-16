@@ -1,8 +1,3 @@
-export const personalInfo = {
-  name: "Prayas Mitra",
-  bio: "A student studying computer science, in my 3rd year of B.Tech. Currently studying at SRM Institute of Science and Technology.",
-}
-
 export const personalLinks = {
     github: "https://github.com/notprayasmitra",
     linkedin: "https://linkedin.com/in/notprayasmitra",
@@ -39,20 +34,20 @@ export const experiences = [
 export const featuredProjects = [
   {
     id: 1,
-    name: "tui-folder-switcher",
+    name: "folder-color-switcher",
     repoOwner: "notprayasmitra",
-    description: "A tui app written in Rust, that uses the papirus-folders package in Arch to switch folder colors in the system",
-    tags: ["nodejs", "react", "sqlite", "mysql", "postgresql"],
+    description: "A tui app written in Rust, that uses the papirus-folders package in Arch to switch folder colors in the system, while giving a preview of the selection of colors",
+    tags: ["Rust", "Bash", "Shell Scripting"],
     stars: 0,
-    link: "https://github.com/notprayasmitra/nldb-engine",
+    link: "https://github.com/notprayasmitra/folder-color-switcher",
   },
 
   {
     id: 2,
     name: "nldb-engine",
     repoOwner: "notprayasmitra",
-    description: "An app that converts Human language in to database queries and provides a concurrency solution built for databases using HITL",
-    tags: ["nodejs", "react", "sqlite", "mysql", "postgresql"],
+    description: "An app that uses NLP to convert human inputs to SQL queries, and has a HITL and SHA-256 mapping sub-system to solve the concurrency issue in database administration",
+    tags: ["Node.js", "FastAPI", "MySQL", "MariaDB", "PostgreSQL"],
     stars: 0,
     link: "https://github.com/notprayasmitra/nldb-engine",
   }
