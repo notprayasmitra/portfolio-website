@@ -8,7 +8,7 @@ export const experiences = [
     {
     id: 1,
     orgName: "Indian Oil Corporation Ltd. - IOCL",
-    orgUrl: "https://iocl.com/",
+    orgUrl: "https://iocl.com",
     role: "Software Developer Intern",
     duration: "May 2026 - Ongoing",
     description: "Developed web applications and middleware using ASP.NET, C#, and MySQL, integrating databases and web services while managing deployment using IIS, with focus on database administration and optimization, and maintenance.",
@@ -16,7 +16,7 @@ export const experiences = [
   {
     id: 2,
     orgName: "GeeksforGeeks Student Chapter",
-    orgUrl: "https://gfgsrmrmp.vercel.app/",
+    orgUrl: "https://gfgsrmrmp.vercel.app",
     role: "Technical - Co-Head",
     duration: "December 2025 - Present",
     description: "Led technical initiatives and community-driven development projects, coordinated different teams, and mentored students in competitive programming, web development, and other computer engineering concepts.",
@@ -24,7 +24,7 @@ export const experiences = [
   {
     id: 3,
     orgName: "SAARC Masts Pvt. Ltd.",
-    orgUrl: "https://www.saarcmaststech.com/",
+    orgUrl: "https://www.saarcmaststech.com",
     role: "Software Developer Intern",
     duration: "June 2025 - September 2025",
     description: "Developed full-stack platforms for psychometric assessments, mentorship, and recruitment with REST APIs having scheduling, reporting, and data management features. ",

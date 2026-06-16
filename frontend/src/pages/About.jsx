@@ -164,25 +164,28 @@ const Timeline = () => {
   return (
     <section className="timeline-section">
       <h2 className="timeline-main-title">Story</h2>
-      <div className="timeline-container">
+      <div className="timeline-wrapper">
+        <div className="timeline-spine" />
         {storyData.map((item, index) => {
           const isEven = index % 2 !== 0;
           return (
-            <div 
-              key={item.id} 
-              className={`timeline-row ${isEven ? 'row-reverse' : 'row-normal'}`}
+            <div
+              key={item.id}
+              className={`timeline-row ${isEven ? "row-reverse" : "row-normal"}`}
             >
               <div className="timeline-block">
                 <h3 className="timeline-block-title">{item.title}</h3>
-                <h3 className="timeline-block-year">{item.year}</h3>
+                <span className="timeline-block-year">{item.year}</span>
                 <div className="timeline-block-content">
                   {item.content}
                 </div>
-                
-                <div className="timeline-node">
-                  {item.id}
-                </div>
               </div>
+
+              {/* Center node */}
+              <div className="timeline-node">{item.id}</div>
+
+              {/* Empty side for alternating layout */}
+              <div className="timeline-spacer" />
             </div>
           );
         })}
