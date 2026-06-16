@@ -22,7 +22,7 @@ function ThemeWidget() {
             root.style.setProperty(key, val);
         });
         root.style.setProperty("--accent-pink", accent);
-        root.style.setProperty("--accent-purple", accent + "cc"); // slight variant
+        root.style.setProperty("--accent-purple", accent + "cc");
         setActiveTheme(themeName);
         setActiveAccent(accent);
         localStorage.setItem("theme", themeName);
@@ -33,7 +33,6 @@ function ThemeWidget() {
         <div className="widget-small">
             <p className="widget-title"><FaPalette /> Theme</p>
 
-            {/* Flavor tabs */}
             <div className="theme-tabs">
                 <div className="theme-tabs-row">
                     {["Latte", "Frappe", "Macchiato"].map((name) => (
@@ -54,7 +53,6 @@ function ThemeWidget() {
                 </button>
             </div>
 
-            {/* Accent swatches */}
             <div className="accent-grid">
                 {accentColors.map((color) => (
                     <button

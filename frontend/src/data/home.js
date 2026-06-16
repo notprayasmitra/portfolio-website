@@ -5,7 +5,6 @@ export const personalLinks = {
 }
 
 export const experiences = [
-    /*
     {
     id: 1,
     orgName: "Indian Oil Corporation Ltd. - IOCL",
@@ -14,7 +13,6 @@ export const experiences = [
     duration: "May 2026 - Ongoing",
     description: "Developed web applications and middleware using ASP.NET, C#, and MySQL, integrating databases and web services while managing deployment using IIS, with focus on database administration and optimization, and maintenance.",
   },
-  */
   {
     id: 2,
     orgName: "GeeksforGeeks Student Chapter",
