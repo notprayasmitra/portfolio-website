@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import "../styles/components/homepage-widgets.css";
 
+import { GitHubCalendar } from "react-github-calendar";
 import { FaAnchor, FaArrowTrendUp } from "react-icons/fa6";
 
 function getPositionedLanguages(languages) {
@@ -11,6 +12,60 @@ function getPositionedLanguages(languages) {
         currentLeft += percentage;
         return { lang, percentage, color, centerOffset };
     });
+}
+
+function GitHubHeatmapWidget() {
+    const calendarThemes = {
+        Latte: {
+            light: ["#eff1f5", "#95cc89", "#4a9e3d", "#2e7323", "#145009"],
+        },
+        Frappe: {
+            dark: ["#303446", "#0e4429", "#0d8846", "#1cb83d", "#2be74a"],
+        },
+        Macchiato: {
+            dark: ["#24273a", "#0e4429", "#0d8846", "#1cb83d", "#2be74a"],
+        },
+        Mocha: {
+            dark: ["#1e1e2e", "#0e4429", "#0d8846", "#1cb83d", "#2be74a"],
+        },
+    };
+
+    const [activeTheme, setActiveTheme] = useState(
+        () => localStorage.getItem("theme") || "Mocha"
+    );
+
+    useEffect(() => {
+        const handler = () => {
+            setActiveTheme(localStorage.getItem("theme") || "Mocha");
+        };
+
+        window.addEventListener("themechange", handler);
+        window.addEventListener("storage", handler);
+        return () => {
+            window.removeEventListener("themechange", handler);
+            window.removeEventListener("storage", handler);
+        };
+    }, []);
+
+    const theme = calendarThemes[activeTheme];
+    const colorScheme = activeTheme === "Latte" ? "light" : "dark";
+
+    return (
+        <div className="github-calendar-wrapper">
+            <h3>Github Contribution</h3>
+            <GitHubCalendar
+                username="notprayasmitra"
+                theme={theme}
+                colorScheme={colorScheme}
+                blockSize={13}
+                blockMargin={5}
+                fontSize={12}
+                hideTotalCount={false}
+                hideColorLegend={false}
+                showWeekdayLabels={false}
+            />
+        </div>
+    );
 }
 
 function RecentCommitsWidget() {
@@ -141,6 +196,7 @@ function GitHubWidgets() {
                 <RecentCommitsWidget />
                 <LatestReposWidget />
             </div>
+            <GitHubHeatmapWidget />
         </section>
     );
 }

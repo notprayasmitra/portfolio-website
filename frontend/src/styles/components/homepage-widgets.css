@@ -29,6 +29,7 @@
 
 .widgets-grid {
   grid-template-columns: 3fr 2fr;
+  margin-bottom: 1rem;
 }
 
 .widgets-top-row .widget-small,
@@ -378,8 +379,8 @@
     min-height: 160px;
     z-index: 0;
     border-radius: 8px;
-    background: var(--bg-secondary); /* those annoying thin white spaces in the map container are hidden using this */
-    filter: brightness(0.85) contrast(1.1); /* control the monochrome theme options of the map from here */
+    background: var(--bg-secondary);
+    filter: brightness(0.85) contrast(1.1);
 }
 
 .location-footer {
@@ -469,4 +470,34 @@
     outline: 2px solid var(--accent-purple);
     outline-offset: 1px;  
     border-radius: 8px;
+}
+
+.github-calendar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Force the calendar SVG to fill the container */
+.github-calendar-wrapper > div,
+.github-calendar-wrapper svg {
+    width: 100% !important;
+}
+
+.github-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.github-link:hover {
+    color: var(--accent);
 }

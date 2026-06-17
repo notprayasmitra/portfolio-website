@@ -32,6 +32,8 @@ function ThemeWidget() {
         setActiveAccent(accent);
         localStorage.setItem("theme", themeName);
         localStorage.setItem("accent", accent);
+
+        window.dispatchEvent(new Event("themechange"));
     }
 
     return (
