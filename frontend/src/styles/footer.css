@@ -1,0 +1,104 @@
+/* Container handles positioning on screen without warping the element's actual width */
+.status-footer-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem; /* Creates the floating offset look from the screen edges */
+    background: transparent;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+/* The core pill layout block */
+.status-footer {
+    width: 100%;
+    max-width: 1200px; /* Aligns with premium master grid wraps */
+    height: 60px; /* Slightly taller for better vertical balance */
+    background-color: #0d0e15; /* Rich dark dock background */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px; /* Smooth rounded capsule corners */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    font-size: 0.78rem;
+    font-family: monospace;
+    color: var(--text-muted, #7c7c93);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.status-left,
+.status-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Increased spacing inside blocks */
+}
+
+.status-copy {
+    color: var(--accent-purple)
+}
+
+.status-sep {
+    color: var(--text-muted);
+    font-weight: 300;
+    margin: 0 0.25rem;
+}
+
+/* Perfect alignment alignment utility for Lucide/React-Icons adjacent to texts */
+.icon-offset {
+    vertical-align: middle;
+    margin-right: 0.25rem;
+    opacity: 0.8;
+}
+
+/* Pulse Glow Indicator Ring */
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #81c784; /* Soft aesthetic emerald green from the image */
+    box-shadow: 0 0 8px #81c784;
+    animation: blink 2.5s ease-in-out infinite;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary, #d1d5db);
+}
+
+.status-clock, 
+.status-views, 
+.status-commit {
+    display: flex;
+    align-items: center;
+    color: #9499b0; /* High-readability terminal grey */
+}
+
+.status-links {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-left: 0.5rem;
+}
+
+.status-links a {
+    color: #62667d;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
+}
+
+.status-links a:hover {
+    color: var(--accent-pink, #ff758f); /* Matches the brand accent highlights on active hover states */
+    transform: translateY(-1px);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 6px #81c784); }
+    50% { opacity: 0.45; filter: drop-shadow(0 0 1px #81c784); }
+}

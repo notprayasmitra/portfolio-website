@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/achievements" element={<Achievements />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

@@ -136,10 +136,12 @@ function LatestReposWidget() {
 
 function GitHubWidgets() {
     return (
-        <div className="widgets-grid">
-            <RecentCommitsWidget />
-            <LatestReposWidget />
-        </div>
+        <section className="widgets-section">
+            <div className="widgets-grid">
+                <RecentCommitsWidget />
+                <LatestReposWidget />
+            </div>
+        </section>
     );
 }
 
