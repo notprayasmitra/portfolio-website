@@ -4,7 +4,6 @@ import { FaCopyright, FaCodeCommit } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiInstagram } from "react-icons/si";
 import { LuClock } from "react-icons/lu"; // Cleaner outline clock to match the image
-import { BiGitBranch } from "react-icons/bi"; // Exact match for the git commit/branch symbol
 
 import "../styles/footer.css";
 

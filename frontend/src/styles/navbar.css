@@ -13,14 +13,16 @@
 .navbar-brand {
   font-size: 0.95rem;
   color: var(--text-muted);
+  cursor: default;
+  user-select: none;
 }
 
 .cursor {
-  animation: blink 1s step-end infinite;
+  animation: cursor-blink 1s step-end infinite;
   color: var(--accent-pink);
 }
 
-@keyframes blink {
+@keyframes cursor-blink {
   50% { opacity: 0; }
 }
 
@@ -37,7 +39,9 @@
   transition: color 0.2s;
 }
 
-.navbar-links a:hover,
+.navbar-links a:hover {
+  color: var(--text-primary)
+}
 .navbar-links a.active {
-  color: var(--text-primary);
+  color: var(--accent-pink);
 }

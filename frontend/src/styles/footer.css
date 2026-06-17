@@ -61,7 +61,7 @@
     border-radius: 50%;
     background: #81c784; /* Soft aesthetic emerald green from the image */
     box-shadow: 0 0 8px #81c784;
-    animation: blink 2.5s ease-in-out infinite;
+    animation: status-glow 2.5s ease-in-out infinite;
 }
 
 .status-indicator {
@@ -98,7 +98,7 @@
     transform: translateY(-1px);
 }
 
-@keyframes blink {
+@keyframes status-glow {
     0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 6px #81c784); }
     50% { opacity: 0.45; filter: drop-shadow(0 0 1px #81c784); }
 }

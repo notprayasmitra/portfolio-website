@@ -1,0 +1,193 @@
+.projects-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem 1.5rem;
+}
+
+.projects-page-header {
+  margin-bottom: 2rem;
+}
+
+.projects-page-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.6rem;
+  color: var(--text-primary, #cdd6f4);
+}
+
+.project-main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.projects-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted, #6c7086);
+  margin-top: 0.4rem;
+}
+
+/* --- FILTER COMPONENT GRID --- */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border, #313244);
+}
+
+.filter-pill {
+  background: var(--bg-secondary, #181825);
+  border: 1px solid var(--border, #313244);
+  color: var(--text-muted, #a6adc8);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-family: monospace;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-pill:hover {
+  border-color: var(--accent-pink, #ff758f);
+  color: var(--text-primary, #cdd6f4);
+}
+
+.filter-pill.active {
+  background-color: var(--accent-pink, #ff758f);
+  border-color: var(--accent-pink, #ff758f);
+  color: #11111b;
+  font-weight: 600;
+}
+
+.tag-count {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* --- THREE COLUMN PROJECTS MASTER GRID --- */
+.projects-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items in a row */
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.project-card {
+  background-color: var(--bg-secondary, #1e1e2e);
+  border: 1px solid var(--border, #313244);
+  border-radius: 8px;
+  padding: 1.4rem;
+  text-decoration: none;
+  color: var(--text-primary, #cdd6f4);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+
+.project-card:hover {
+  border-color: var(--accent-pink, #ff758f);
+  transform: translateY(-2px);
+}
+
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.traffic-lights {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.traffic-lights span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.traffic-lights span:nth-child(1) { background-color: #ff5f57; }
+.traffic-lights span:nth-child(2) { background-color: #febc2e; }
+.traffic-lights span:nth-child(3) { background-color: #28c840; }
+
+.project-repo {
+  font-size: 0.95rem;
+  font-family: monospace;
+  font-weight: 500;
+}
+
+.project-repo .accent {
+  color: var(--accent-pink, #ff758f);
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted, #a6adc8);
+  line-height: 1.5;
+  flex: 1; /* Pushes tags cleanly to the card base */
+  
+  /* --- FIX OVERFLOW WITH LINE CLIPPING --- */
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3; /* Sets the maximum number of lines before truncating */
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-family: monospace;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--bg-card, #11111b);
+  color: var(--text-muted, #89b4fa);
+  border: 1px solid var(--border, #313244);
+  transition: all 0.15s ease;
+}
+
+/* Highlights the targeted active filter inside the cards */
+.tag.highlighted-tag {
+  border-color: var(--accent-pink, #ff758f);
+  background-color: rgba(255, 117, 143, 0.1);
+  color: var(--text-primary, #cdd6f4);
+}
+
+.empty-state-notice {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-muted, #6c7086);
+  font-family: monospace;
+  border: 1px dashed var(--border, #313244);
+  border-radius: 8px;
+}
+
+/* --- BREAKPOINT RESPONSIVENESS TIER --- */
+@media (max-width: 1024px) {
+  .projects-gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* Snaps smoothly to 2 columns on tablets */
+  }
+}
+
+@media (max-width: 680px) {
+  .projects-gallery-grid {
+    grid-template-columns: 1fr; /* 1 column mobile layout card flow */
+  }
+}
