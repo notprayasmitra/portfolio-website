@@ -1,7 +1,5 @@
-/* Core Structural Grid Layout */
-
 .experience-page {
-    height: 93vh;
+    height: 100%;
     overflow: hidden;
     padding-top: 0;
 }
@@ -81,7 +79,7 @@
 .exp-right-title {
     font-size: 2rem;
     color: var(--text-primary, #ffffff);
-    margin: 0;
+    margin-bottom: 0;
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -99,6 +97,7 @@
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
     height: 100%;
+    align-items: stretch;
 }
 
 .exp-cards-track::-webkit-scrollbar {
@@ -118,8 +117,7 @@
     gap: 1rem;
     scroll-snap-align: start;
     transition: border-color 0.3s ease;
-    min-height: 580px;
-    height: 100%;
+    align-self: stretch;
 }
 
 .exp-card:hover {
@@ -349,4 +347,68 @@
     display: flex;
     align-items: center;
     gap: 0.35rem;
+}
+
+.exp-card-promotions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border, #222235);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vertical connector line between dots */
+.exp-card-promotions::before {
+    content: "";
+    position: absolute;
+    left: 1.2rem;
+    top: 1.75rem;       /* push down to center of first dot */
+    bottom: 1.75rem;    /* pull up to center of last dot */
+    width: 2px;
+    background: var(--border, #222235);
+}
+
+.promotion-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.promotion-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--border, #222235);
+    background: var(--bg-secondary, #13131e);
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.promotion-dot--current {
+    background: var(--accent-pink, #ff758f);
+    border-color: var(--accent-pink, #ff758f);
+    box-shadow: 0 0 6px var(--accent-pink, #ff758f);
+}
+
+.promotion-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.promotion-role {
+    font-size: 0.82rem;
+    color: var(--text-secondary, #d1d5db);
+    font-weight: 500;
+}
+
+.promotion-since {
+    font-size: 0.75rem;
+    color: var(--text-muted, #6b7280);
+    font-family: monospace;
 }

@@ -7,66 +7,74 @@ const experienceData = [
         id: 1,
         role: "Software Engineer Intern",
         org: "Indian Oil Corporation Ltd. (IOCL)",
-        orgUrl: "#",
-        duration: "May 2026 – Ongoing",
+        orgUrl: "https://iocl.com",
+        duration: "May 2026 - Ongoing",
         description: [
-            "Built and maintained core UI components for the Noctalia shell project.",
-            "Developed REST APIs using ASP.NET and C#.",
-            "Managed database schemas and queries in MySQL.",
+            "Developed middleware, web applications and forms using ASP.NET, C#, and MySQL.",
+            "Integrated web services with databases for storage and retrieval, and hosted the same on a LAN using IIS.",
+            "Designed and maintained relational database schemas for enterprise applications, and performed database administration, query optimization, and data management tasks.",
         ],
-        tags: ["React", "Next.js", "Node.js", "Express.js", "BetterAuth", "REST APIs", "PostgreSQL", "MongoDB"],
+        tags: [".NET", "ASP.NET", "C#", "JavaScript", "SOAP APIs", "MySQL", "MariaDB", "IIS"],
     },
     {
         id: 2,
-        role: "Software Engineer Intern",
-        org: "SAARC Masts Pvt. Ltd.",
-        orgUrl: "#",
-        duration: "June 2025 – September 2025",
+        role: "Open Source Contributor",
+        org: "Noctalia",
+        orgUrl: "https://noctalia.dev/",
+        duration: "Jan 2026 - May 2026",
         description: [
-            "Built and maintained core UI components for the Noctalia shell project.",
-            "Developed REST APIs using ASP.NET and C#.",
-            "Managed database schemas and queries in MySQL.",
+            "Developed and deployed a Pomodoro plugin written in Quickshell utilizing the custom modules of Noctalia Shell.",
+            "Integrated features such as - cutomizable sessions of productivity, custom alarm sound and duration, and much more.",
+            "Conducted system-level testing across shell components and managed event listeners for real-time desktop UI updates.",
         ],
-        tags: ["React", "Next.js", "Node.js", "Express.js", "BetterAuth", "REST APIs", "PostgreSQL", "MongoDB"],
+        tags: ["Quickshell", "QML", "Shell Scripts", "Custom Modules"],
     },
     {
         id: 3,
-        role: "Open Source Contributor",
-        org: "Noctalia",
-        orgUrl: "#",
-        duration: "January 2026 – May 2026",
-        description: [
-            "Built and maintained core UI components for the Noctalia shell project.",
-            "Developed REST APIs using ASP.NET and C#.",
-            "Managed database schemas and queries in MySQL.",
+        role: "Associate Student Ambassador",
+        org: "Microsoft",
+        orgUrl: "https://mvp.microsoft.com/en-US/studentambassadors",
+        duration: "Jan 2026 - Present",
+        promotions: [
+            { role: "Associate Student Ambassdor", since: "Mar 2026 - Present" },
+            { role: "Student Ambassdor", since: "Jan 2026 - Feb 2026" },
         ],
-        tags: ["Quickshell", "QML", "Shell Scripts", "Custom Modules"],
+        description: [
+            "Organized cloud bootcamps focused on deploying containerized projects utilizing Microsoft Azure.",
+            "Led 20+ technical workshops on various topics like Git, Version Control, and modern collaborative engineering workflows.",
+            "Spearheaded public upskilling initiatives and technical mentoring sessions.",
+        ],
+        tags: ["Git/GitHub", "Azure", "Leadership", "Communication", "Mentorship"],
     },
     {
         id: 4,
         role: "Technical Co-Head",
-        org: "GeeksforGeeks",
-        orgUrl: "#",
-        duration: "December 2025 – Present",
-        description: [
-            "Built and maintained core UI components for the Noctalia shell project.",
-            "Developed REST APIs using ASP.NET and C#.",
-            "Managed database schemas and queries in MySQL.",
+        org: "GeeksforGeeks Student Chapter",
+        orgUrl: "https://gfgsrmrmp.vercel.app",
+        duration: "Dec 2025 - Present",
+        promotions: [
+            { role: "Technical Co-Head", since: "May 2026 - Present" },
+            { role: "Technical Member", since: "Dec 2025 - April 2026" },
         ],
-        tags: ["Quickshell", "QML", "Shell Scripts", "Custom Modules"],
+        description: [
+            "Led technical initiatives, and full-stack development projects within the organization.",
+            "Coordinated project teams and reviewed contributions across multiple community projects.",
+            "Mentored students in competitive programming, web development, git, and software engineering practices.",
+        ],
+        tags: ["React", "Node.js", "Supabase", "Leadership", "Communication", "Mentorship"],
     },
     {
         id: 5,
-        role: "Associate Student Ambassador",
-        org: "Microsoft",
-        orgUrl: "#",
-        duration: "January 2026 – Present",
+        role: "Software Engineer Intern",
+        org: "SAARC Masts Pvt. Ltd.",
+        orgUrl: "https://www.saarcmaststech.com",
+        duration: "Jun 2025 - Sep 2025",
         description: [
-            "Built and maintained core UI components for the Noctalia shell project.",
-            "Developed REST APIs using ASP.NET and C#.",
-            "Managed database schemas and queries in MySQL.",
+            "Developed a psychometric assessment platform for candidate evaluation and reporting.",
+            "Built Mentor Connect, featuring calendar integration, meeting and event scheduling, chat, and resource sharing.",
+            "Developed full-stack web applications for mentorship, recruitment, and assessment platforms. Designed REST APIs and database models for application data management.",
         ],
-        tags: ["Quickshell", "QML", "Shell Scripts", "Custom Modules"],
+        tags: ["React", "Next.js", "Node.js", "Express.js", "BetterAuth", "REST APIs", "PostgreSQL", "MongoDB"],
     },
 ];
 
@@ -298,7 +306,24 @@ function Experience() {
                                 <a href={item.orgUrl} target="_blank" rel="noreferrer" className="exp-card-org accent">
                                     {item.org}
                                 </a>
-                                <span className="exp-card-duration">{item.duration}</span>
+                                {item.promotions && (
+                                    <div className="exp-card-promotions">
+                                        {item.promotions.map((p, i) => (
+                                            <div key={i} className="promotion-row">
+                                                <div className={`promotion-dot ${i === 0 ? "promotion-dot--current" : ""}`} />
+                                                <div className="promotion-info">
+                                                    <span className="promotion-role">{p.role}</span>
+                                                    <span className="promotion-since">{p.since}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Only show duration if no promotions */}
+                                {!item.promotions && (
+                                    <span className="exp-card-duration">{item.duration}</span>
+                                )}
                                 <ul className="exp-card-desc">
                                     {item.description.map((point, i) => (
                                         <li key={i} className="individual-points">{point}</li>

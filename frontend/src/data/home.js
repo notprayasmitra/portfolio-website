@@ -18,7 +18,7 @@ export const experiences = [
     orgName: "GeeksforGeeks Student Chapter",
     orgUrl: "https://gfgsrmrmp.vercel.app",
     role: "Technical - Co-Head",
-    duration: "December 2025 - Present",
+    duration: "Dec 2025 - Present",
     description: "Led technical initiatives and community-driven development projects, coordinated different teams, and mentored students in competitive programming, web development, and other computer engineering concepts.",
   },
   {
@@ -26,7 +26,7 @@ export const experiences = [
     orgName: "SAARC Masts Pvt. Ltd.",
     orgUrl: "https://www.saarcmaststech.com",
     role: "Software Developer Intern",
-    duration: "June 2025 - September 2025",
+    duration: "Jun 2025 - Sep 2025",
     description: "Developed full-stack platforms for psychometric assessments, mentorship, and recruitment with REST APIs having scheduling, reporting, and data management features. ",
   }
 ]
@@ -59,7 +59,7 @@ export const achievements = [
     title: "Microsoft Learn Student Ambassador",
     organization: "Microsoft",
     rank: "Associate Student Ambassador",
-    date: "January 2026 - June 2026",
+    date: "Jan 2026 - Jun 2026",
     description: "Building & nurturing a thriving student community by encouraging peer-to-peer learning, technical discussions, & organizing educational initiatives. Helping others upskill, grow professionally, & navigate tech ecosystem.",
     links: {
       github: null,
@@ -72,7 +72,7 @@ export const achievements = [
     title: "DEVTrails Hackathon 2026",
     organization: "Guidewire",
     rank: "100/4400+ teams",
-    date: "April 2026",
+    date: "Apr 2026",
     description: "Collaborated with a team to conceptualize and build and present a functional prototype under various constraints. Contributed to technical implementation, project coordination, and presentation while leveraging teamwork skills to achieve Top 100 ranking among 4400+ teams.",
     links: {
       github: "https://github.com/devtrails-hackathon",
