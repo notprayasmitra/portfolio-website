@@ -5,11 +5,28 @@ import { allProjects } from "../data/projects";
 function ProjectsPage() {
     const [selectedTags, setSelectedTags] = useState([]);
 
-    const availableTags = useMemo(() => {
+    // 1. First, calculate the filtered projects as we did before
+    const filteredProjects = useMemo(() => {
+        if (selectedTags.length === 0) return allProjects;
+        return allProjects.filter((project) =>
+            selectedTags.every((tag) => project.tags.includes(tag))
+        );
+    }, [selectedTags]);
+
+    // 2. NEW LOGIC: Calculate available tags strictly from the CURRENTLY filtered projects
+    const dynamicallyAvailableTags = useMemo(() => {
         const tagsSet = new Set();
-        allProjects.forEach(project => project.tags.forEach(tag => tagsSet.add(tag)));
+        
+        // Loop through only the matching projects instead of allProjects
+        filteredProjects.forEach(project => 
+            project.tags.forEach(tag => tagsSet.add(tag))
+        );
+        
+        // CRITICAL: Ensure currently selected tags stay in the pool so you can unselect them!
+        selectedTags.forEach(tag => tagsSet.add(tag));
+        
         return Array.from(tagsSet);
-    }, []);
+    }, [filteredProjects, selectedTags]);
 
     const handleTagToggle = (tag) => {
         if (tag === "All") {
@@ -24,13 +41,6 @@ function ProjectsPage() {
         );
     };
 
-    const filteredProjects = useMemo(() => {
-        if (selectedTags.length === 0) return allProjects;
-        return allProjects.filter((project) =>
-            selectedTags.every((tag) => project.tags.includes(tag))
-        );
-    }, [selectedTags]);
-
     return (
         <main className="projects-page-container">
             <header className="projects-page-header">
@@ -40,7 +50,7 @@ function ProjectsPage() {
                 </p>
             </header>
 
-            {/* --- MULTI-SELECT FILTER PILLS BAR --- */}
+            {/* --- DYNAMIC FILTER PILLS BAR --- */}
             <nav className="filter-container" aria-label="Project tag filters">
                 {/* Fixed "All" Pill */}
                 <button
@@ -50,8 +60,8 @@ function ProjectsPage() {
                     All
                 </button>
 
-                {/* Dynamic Tag Pills */}
-                {availableTags.map((tag) => {
+                {/* Switch to mapping over dynamicallyAvailableTags */}
+                {dynamicallyAvailableTags.map((tag) => {
                     const isPassedActive = selectedTags.includes(tag);
                     return (
                         <button
@@ -72,13 +82,6 @@ function ProjectsPage() {
             <div className="projects-gallery-grid">
                 {filteredProjects.map((project) => (
                     <a key={project.id} href={project.link} target="_blank" rel="noreferrer" className="project-card">
-                        <div className="project-card-top">
-                            <div className="traffic-lights">
-                                <span />
-                                <span />
-                                <span />
-                            </div>
-                        </div>
                         <p className="project-repo">
                             <span className="accent">{project.repoOwner}</span> / {project.name}
                         </p>

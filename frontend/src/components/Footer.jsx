@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaCopyright, FaCodeCommit } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
-import { SiInstagram } from "react-icons/si";
 import { LuClock } from "react-icons/lu"; // Cleaner outline clock to match the image
 
 import "../styles/footer.css";
@@ -49,7 +48,6 @@ function Footer() {
                         <a href="https://github.com/notprayasmitra" target="_blank" rel="noreferrer"><FaGithub size={14} /></a>
                         <a href="https://linkedin.com/in/notprayasmitra" target="_blank" rel="noreferrer"><FaLinkedin size={14} /></a>
                         <a href="#" target="_blank" rel="noreferrer"><FaXTwitter size={14} /></a>
-                        <a href="#" target="_blank" rel="noreferrer"><SiInstagram size={14} /></a>
                     </div>
                 </div>
             </div>
