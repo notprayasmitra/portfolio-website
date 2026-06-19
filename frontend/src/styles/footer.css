@@ -11,21 +11,20 @@
     justify-content: center;
 }
 
-/* The core pill layout block */
 .status-footer {
     width: 100%;
-    max-width: 1200px; /* Aligns with premium master grid wraps */
-    height: 60px; /* Slightly taller for better vertical balance */
-    background-color: #0d0e15; /* Rich dark dock background */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px; /* Smooth rounded capsule corners */
+    max-width: 1200px;
+    height: 60px;
+    background-color: var(--bg-card);        /* was #0d0e15 */
+    border: 1px solid var(--border);         /* was rgba(255,255,255,0.05) */
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
     font-size: 0.78rem;
     font-family: monospace;
-    color: var(--text-muted, #7c7c93);
+    color: var(--text-muted);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -68,15 +67,15 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-secondary, #d1d5db);
+    color: var(--text-primary);
 }
 
-.status-clock, 
-.status-views, 
+.status-clock,
+.status-views,
 .status-commit {
     display: flex;
     align-items: center;
-    color: #9499b0; /* High-readability terminal grey */
+    color: var(--text-muted);               /* was #9499b0 */
 }
 
 .status-links {
@@ -87,7 +86,7 @@
 }
 
 .status-links a {
-    color: #62667d;
+    color: var(--text-muted);               /* was #62667d */
     display: flex;
     align-items: center;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
@@ -96,6 +95,10 @@
 .status-links a:hover {
     color: var(--accent-pink, #ff758f); /* Matches the brand accent highlights on active hover states */
     transform: translateY(-1px);
+}
+
+[data-theme="Latte"] .status-footer {
+    box-shadow: 0 2px 12px rgba(76, 79, 105, 0.12);
 }
 
 @keyframes status-glow {

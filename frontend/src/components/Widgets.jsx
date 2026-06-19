@@ -81,7 +81,7 @@ function LocationWidget() {
     const [time, setTime] = useState("");
     const [isNight, setIsNight] = useState(false);
     const [currentTheme, setCurrentTheme] = useState(
-        () => document.documentElement.getAttribute("data-theme") || "Mocha"
+        () => localStorage.getItem("theme") || "Mocha"
     );
 
     useEffect(() => {
