@@ -108,11 +108,11 @@
 }
 
 .row-normal .timeline-node {
-  right: -19px;
+  right: -15px;
 }
 
 .row-reverse .timeline-node {
-  left: -19px;
+  left: -15px;
 }
 
 @media (max-width: 600px) {
