@@ -22,10 +22,7 @@ import {
 } from "react-icons/si"
 import { FaJava } from "react-icons/fa"
 
-import { personalLinks } from "../data";
-import { experiences } from "../data";
-import { featuredProjects } from "../data";
-import { achievements } from "../data";
+import { personalLinks, experiences, featuredProjects, achievements, responsibilities } from "../data";
 
 import GitHubWidgets from "../components/GitHubWidgets";
 import Widgets from "../components/Widgets";
@@ -66,11 +63,12 @@ function Home() {
             </div>
         </section>
         <section className="tech-section">
-            <h2>What I work with</h2>
+            <div className="section-heading">
+                <h2>What I work with</h2>
+            </div>
 
             {/* Layout for basic flex */}
             
-            {/*
             <div className="tech-stack">
                 {stack.map((item) => (
                     <div key={item.label} className="tech-item">
@@ -79,8 +77,10 @@ function Home() {
                     </div>
                 ))}
             </div>
-            */}
             
+            {/* Layout for 7-column grid */}
+
+            {/*
             <div className="tech-stack">
                 <div className="tech-row">
                     {stack.slice(0, 7).map((item) => (
@@ -99,9 +99,13 @@ function Home() {
                     ))}
                 </div>
             </div>
+            */}
         </section>
         <section className="exp-section">
-            <h2>Experience</h2>
+            <div className="section-heading">
+                <h2>Experience</h2>
+                <hr className="section-rule" />
+            </div>
             <div className="timeline">
                 {experiences.map((item) => (
                     <div key={item.id} className="timeline-item">
@@ -147,8 +151,36 @@ function Home() {
                 ))}
             </div>
         </section>
+        <section className="responsibilities-section">
+            <div className="section-heading">
+                <h2>Positions of Responsibility</h2>
+                <hr className="section-rule" />
+            </div>
+            <div className="responsibilities-list">
+                {responsibilities.map((item) => (
+                    <div key={item.id} className="responsibility-item">
+                        <div className="responsibility-left">
+                            <div className="timeline-header" />
+                        </div>
+                        <div className="responsibility-content">
+                            <div className="responsibility-top">
+                                <h3>{item.title}</h3>
+                                <span className="timeline-duration">{item.date}</span>
+                            </div>
+                            <a href={item.references} target="_blank" rel="noreferrer" className="accent responsibility-org">
+                                {item.organization} <FaExternalLinkAlt size={11}/>
+                            </a>
+                            <p className="responsibility-desc">{item.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
         <section className="achievements-section">
-            <h2>Achievements</h2>
+            <div className="section-heading">
+                <h2>Achivements</h2>
+                <hr className="section-rule" />
+            </div>
             <div className="achievements-list">
                 {achievements.map((item) => (
                     <div key={item.id} className="achievement-item">
@@ -178,6 +210,10 @@ function Home() {
         </section>
         <section className="widgets-section">
             <div className="widgets-layout">
+                <div className="section-heading">
+                    <h2>Dashboard</h2>
+                    <hr className="section-rule" />
+                </div>
                 <Widgets />
                 <GitHubWidgets />
             </div>

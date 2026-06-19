@@ -13,13 +13,13 @@ export const experiences = [
     duration: "May 2026 - Ongoing",
     description: "Developed web applications and middleware using ASP.NET, C#, and MySQL, integrating databases and web services while managing deployment using IIS, with focus on database administration and optimization, and maintenance.",
   },
-  {
+    {
     id: 2,
-    orgName: "GeeksforGeeks Student Chapter",
-    orgUrl: "https://gfgsrmrmp.vercel.app",
-    role: "Technical - Co-Head",
-    duration: "Dec 2025 - Present",
-    description: "Led technical initiatives and community-driven development projects, coordinated different teams, and mentored students in competitive programming, web development, and other computer engineering concepts.",
+    orgName: "Noctalia",
+    orgUrl: "https://noctalia.dev/",
+    role: "Open Source Contributor",
+    duration: "Jan 2026 - May 2026",
+    description: "Developed and deployed a feature-rich Pomodoro plugin for Noctalia Shell using QuickShell and custom modules, integrating system-level event listeners, real-time desktop UI updates, configurable sessions, and alarms.",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ export const experiences = [
     role: "Software Developer Intern",
     duration: "Jun 2025 - Sep 2025",
     description: "Developed full-stack platforms for psychometric assessments, mentorship, and recruitment with REST APIs having scheduling, reporting, and data management features. ",
-  }
+  },
 ]
 
 export const featuredProjects = [
@@ -56,19 +56,6 @@ export const featuredProjects = [
 export const achievements = [
   {
     id: 1,
-    title: "Microsoft Learn Student Ambassador",
-    organization: "Microsoft",
-    rank: "Associate Student Ambassador",
-    date: "Jan 2026 - Jun 2026",
-    description: "Building & nurturing a thriving student community by encouraging peer-to-peer learning, technical discussions, & organizing educational initiatives. Helping others upskill, grow professionally, & navigate tech ecosystem.",
-    links: {
-      github: null,
-      blog: "https://mvp.microsoft.com/en-US/studentambassadors/profile/d4686231-482b-4288-ba20-46800cfa79c1",
-    },
-  },
-
-  {
-    id: 2,
     title: "DEVTrails Hackathon 2026",
     organization: "Guidewire",
     rank: "100/4400+ teams",
@@ -78,5 +65,24 @@ export const achievements = [
       github: "https://github.com/devtrails-hackathon",
       blog: null,
     },
+  },
+]
+
+export const responsibilities = [
+  {
+    id: 1,
+    title: "Technical - Co-Head",
+    organization: "GeeksforGeeks Student Chapter",
+    date: "Dec 2025 - Present",
+    description: "Led technical initiatives and community-driven development projects, coordinated different teams, and mentored students in competitive programming, web development, and other computer engineering concepts.",
+    references: "https://gfgsrmrmp.vercel.app",
+  },
+  {
+    id: 2,
+    title: "Associate Student Ambassador",
+    organization: "Microsoft",
+    date: "Jan 2026 - Present",
+    description: "Building & nurturing a thriving student community by encouraging peer-to-peer learning, technical discussions, and organizing educational initiatives. Helping others upskill, grow professionally, & navigate tech ecosystem.",
+    references: "https://mvp.microsoft.com/en-US/studentambassadors/profile/d4686231-482b-4288-ba20-46800cfa79c1",
   },
 ]
