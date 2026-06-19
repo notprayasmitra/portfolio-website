@@ -54,3 +54,20 @@ export const accentColors = [
     "#b8baba", // white
 ];
 
+// Bolder shades for Latte (light bg needs more saturation)
+export const latteAccentColors = [
+    "#d20f39", // red
+    "#fe640b", // peach
+    "#df8e1d", // yellow
+    "#40a02b", // green
+    "#179299", // teal
+    "#04a5e5", // sky
+    "#209fb5", // sapphire
+    "#1e66f5", // blue
+    "#7287fd", // lavender
+    "#8839ef", // mauve
+    "#ea76cb", // pink
+    "#dd7878", // flamingo
+    "#dc8a78", // rosewater
+    "#5c5f77", // subtext (replaces white — invisible on light bg)
+];
