@@ -81,41 +81,17 @@ const experienceData = [
 function TimelineLeft({ progress, activeIndex }) {
     const totalStops = experienceData.length;
     
-    // Hard lines locked onto a permanent absolute horizontal axis
     const startY = 20;
     const endY = 380;
     const lineLength = endY - startY;
-    const targetX = 25; // Unified track center line anchoring point
+    const targetX = 25;
 
     return (
         <div className="timeline-container">
-            <svg
-                className="timeline-svg"
-                viewBox="0 0 200 400"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                {/* 1. Base Guide Track */}
-                <line
-                    x1={targetX}
-                    y1={startY}
-                    x2={targetX}
-                    y2={endY}
-                    stroke="var(--border, #222235)"
-                    strokeWidth="2"
-                    strokeDasharray="4 4"
-                />
+            <svg className="timeline-svg" viewBox="0 0 200 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                <line x1={targetX} y1={startY} x2={targetX} y2={endY} stroke="var(--border, #222235)" strokeWidth="2" strokeDasharray="4 4" />
                 
-                {/* 2. Active Progress Filler Line */}
-                <line
-                    x1={targetX}
-                    y1={startY}
-                    x2={targetX}
-                    y2={endY}
-                    stroke="var(--accent-purple)"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    pathLength="1"
+                <line x1={targetX} y1={startY} x2={targetX} y2={endY} stroke="var(--accent-purple)" strokeWidth="2.5" strokeLinecap="round" pathLength="1"
                     style={{
                         strokeDasharray: 1,
                         strokeDashoffset: 1 - progress,
@@ -124,7 +100,6 @@ function TimelineLeft({ progress, activeIndex }) {
                     }}
                 />
 
-                {/* 3. Generating Responsive Anchors Dynamic Map */}
                 {experienceData.map((item, i) => {
                     const stopProgress = i / (totalStops - 1);
                     const y = startY + stopProgress * lineLength;
@@ -132,14 +107,12 @@ function TimelineLeft({ progress, activeIndex }) {
                     const isActive = i === activeIndex;
                     const isPassed = i <= activeIndex;
                     
-                    // Extracts short strings safely
                     const shortOrg = item.org.includes("(") 
                         ? item.org.split("(")[1].replace(")", "") 
                         : item.org.split(" ")[0];
 
                     return (
                         <g key={i} className={`timeline-node-group ${isActive ? "active" : ""}`}>
-                            {/* Pulse Tracker Ring */}
                             {isActive && (
                                 <circle
                                     cx={targetX}
@@ -152,7 +125,6 @@ function TimelineLeft({ progress, activeIndex }) {
                                 />
                             )}
                             
-                            {/* Intersection Circle Node */}
                             <circle
                                 cx={targetX}
                                 cy={y}
@@ -165,7 +137,6 @@ function TimelineLeft({ progress, activeIndex }) {
                                 }}
                             />
 
-                            {/* Organization Text Node */}
                             <text
                                 x={targetX + 22}
                                 y={y - 2}
@@ -175,7 +146,6 @@ function TimelineLeft({ progress, activeIndex }) {
                                 {shortOrg}
                             </text>
 
-                            {/* Timeline Context Text Node */}
                             <text
                                 x={targetX + 22}
                                 y={y + 11}
@@ -201,7 +171,6 @@ function Experience() {
         const track = trackRef.current;
         if (!track) return;
 
-        // Update progress bar on scroll
         const handleScroll = () => {
             const { scrollLeft, scrollWidth, clientWidth } = track;
             const maxScroll = scrollWidth - clientWidth;
@@ -209,21 +178,17 @@ function Experience() {
         };
         track.addEventListener("scroll", handleScroll, { passive: true });
 
-        // NEW: Intercept vertical wheel scroll and translate it horizontally
         const handleWheel = (e) => {
-            // e.deltaY is positive when scrolling down, negative when scrolling up
             if (e.deltaY !== 0) {
-                e.preventDefault(); // Prevents the main page body from scrolling up/down
+                e.preventDefault();
                 track.scrollBy({
-                    left: e.deltaY * 1.2, // Multiply to tweak scroll sensitivity speed
-                    behavior: "auto"       // "auto" prevents stuttering during rapid wheel inputs
+                    left: e.deltaY * 1.2,
+                    behavior: "auto"
                 });
             }
         };
-        // Crucial: passive must be false so e.preventDefault() actually works
         track.addEventListener("wheel", handleWheel, { passive: false });
 
-        // Use IntersectionObserver to detect which card is actually visible
         const cards = Array.from(track.querySelectorAll(".exp-card"));
         const observer = new IntersectionObserver(
             (entries) => {
@@ -235,17 +200,16 @@ function Experience() {
                 });
             },
             {
-                root: track,         // observe within the scroll track
-                threshold: 0.7,      // card must be 70% visible to activate
+                root: track,
+                threshold: 0.7,
             }
         );
 
         cards.forEach((card) => observer.observe(card));
 
-        // Cleanup listeners on component unmount
         return () => {
             track.removeEventListener("scroll", handleScroll);
-            track.removeEventListener("wheel", handleWheel); // NEW: Clean up wheel listener
+            track.removeEventListener("wheel", handleWheel);
             observer.disconnect();
         };
     }, []);
@@ -266,18 +230,14 @@ function Experience() {
                     <TimelineLeft progress={progress} activeIndex={activeIndex} />
 
                     <div className="exp-side-metrics">
-                        {/* Section 1: Active Focus */}
                         <div className="metric-box">
                             <span className="metric-accent">Active Focus</span>
                             <p className="metric-text">Full-Stack Architectures, Distributed APIs & Shell Scripts Contributor</p>
                         </div>
                         
-                        {/* Section 2: Milestones */}
                         <div className="metric-box">
-                            {/* FIXED: Heading is now outside the chips flex wrapper */}
                             <span className="metric-accent">Milestones</span>
                             
-                            {/* The chips are neatly bundled together in their own container */}
                             <div className="focus-sectors" style={{ marginTop: "0.5rem" }}>
                                 <span className="sector-chip">2 Internships</span>
                                 <span className="sector-chip">2 Leadership Initiatives</span>
@@ -320,7 +280,6 @@ function Experience() {
                                     </div>
                                 )}
 
-                                {/* Only show duration if no promotions */}
                                 {!item.promotions && (
                                     <span className="exp-card-duration">{item.duration}</span>
                                 )}

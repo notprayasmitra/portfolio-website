@@ -29,7 +29,6 @@
   margin-top: 0.4rem;
 }
 
-/* --- FILTER COMPONENT GRID --- */
 .filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -71,7 +70,6 @@
   opacity: 0.8;
 }
 
-/* --- THREE COLUMN PROJECTS MASTER GRID --- */
 .projects-gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items in a row */
@@ -130,12 +128,10 @@
   font-size: 0.85rem;
   color: var(--text-muted, #a6adc8);
   line-height: 1.5;
-  flex: 1; /* Pushes tags cleanly to the card base */
-  
-  /* --- FIX OVERFLOW WITH LINE CLIPPING --- */
+  flex: 1;
   display: -webkit-box;
   line-clamp: 3;
-  -webkit-line-clamp: 3; /* Sets the maximum number of lines before truncating */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   text-overflow: ellipsis;
@@ -159,7 +155,6 @@
   transition: all 0.15s ease;
 }
 
-/* Highlights the targeted active filter inside the cards */
 .tag.highlighted-tag {
   border-color: var(--accent-pink, #ff758f);
   background-color: rgba(255, 117, 143, 0.1);
@@ -175,15 +170,14 @@
   border-radius: 8px;
 }
 
-/* --- BREAKPOINT RESPONSIVENESS TIER --- */
 @media (max-width: 1024px) {
   .projects-gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* Snaps smoothly to 2 columns on tablets */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 680px) {
   .projects-gallery-grid {
-    grid-template-columns: 1fr; /* 1 column mobile layout card flow */
+    grid-template-columns: 1fr;
   }
 }

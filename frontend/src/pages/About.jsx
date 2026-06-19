@@ -181,10 +181,7 @@ const Timeline = () => {
                 </div>
               </div>
 
-              {/* Center node */}
               <div className="timeline-node">{item.id}</div>
-
-              {/* Empty side for alternating layout */}
               <div className="timeline-spacer" />
             </div>
           );

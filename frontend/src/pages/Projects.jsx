@@ -5,7 +5,6 @@ import { allProjects } from "../data/projects";
 function ProjectsPage() {
     const [selectedTags, setSelectedTags] = useState([]);
 
-    // 1. First, calculate the filtered projects as we did before
     const filteredProjects = useMemo(() => {
         if (selectedTags.length === 0) return allProjects;
         return allProjects.filter((project) =>
@@ -13,16 +12,14 @@ function ProjectsPage() {
         );
     }, [selectedTags]);
 
-    // 2. NEW LOGIC: Calculate available tags strictly from the CURRENTLY filtered projects
+
     const dynamicallyAvailableTags = useMemo(() => {
         const tagsSet = new Set();
         
-        // Loop through only the matching projects instead of allProjects
         filteredProjects.forEach(project => 
             project.tags.forEach(tag => tagsSet.add(tag))
         );
         
-        // CRITICAL: Ensure currently selected tags stay in the pool so you can unselect them!
         selectedTags.forEach(tag => tagsSet.add(tag));
         
         return Array.from(tagsSet);
@@ -50,9 +47,7 @@ function ProjectsPage() {
                 </p>
             </header>
 
-            {/* --- DYNAMIC FILTER PILLS BAR --- */}
             <nav className="filter-container" aria-label="Project tag filters">
-                {/* Fixed "All" Pill */}
                 <button
                     className={`filter-pill ${selectedTags.length === 0 ? "active" : ""}`}
                     onClick={() => handleTagToggle("All")}
@@ -60,7 +55,6 @@ function ProjectsPage() {
                     All
                 </button>
 
-                {/* Switch to mapping over dynamicallyAvailableTags */}
                 {dynamicallyAvailableTags.map((tag) => {
                     const isPassedActive = selectedTags.includes(tag);
                     return (
@@ -78,7 +72,6 @@ function ProjectsPage() {
                 })}
             </nav>
 
-            {/* --- 3-COLUMN DATA RENDER BLOCK --- */}
             <div className="projects-gallery-grid">
                 {filteredProjects.map((project) => (
                     <a key={project.id} href={project.link} target="_blank" rel="noreferrer" className="project-card">

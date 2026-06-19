@@ -1,10 +1,9 @@
-/* Container handles positioning on screen without warping the element's actual width */
 .status-footer-container {
     position: relative;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.25rem; /* Creates the floating offset look from the screen edges */
+    padding: 1.25rem;
     background: transparent;
     z-index: 100;
     display: flex;
@@ -15,8 +14,8 @@
     width: 100%;
     max-width: 1200px;
     height: 60px;
-    background-color: var(--bg-card);        /* was #0d0e15 */
-    border: 1px solid var(--border);         /* was rgba(255,255,255,0.05) */
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -32,7 +31,7 @@
 .status-right {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Increased spacing inside blocks */
+    gap: 0.5rem;
 }
 
 .status-copy {
@@ -45,20 +44,18 @@
     margin: 0 0.25rem;
 }
 
-/* Perfect alignment alignment utility for Lucide/React-Icons adjacent to texts */
 .icon-offset {
     vertical-align: middle;
     margin-right: 0.25rem;
     opacity: 0.8;
 }
 
-/* Pulse Glow Indicator Ring */
 .status-dot {
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #81c784; /* Soft aesthetic emerald green from the image */
+    background: #81c784;
     box-shadow: 0 0 8px #81c784;
     animation: status-glow 2.5s ease-in-out infinite;
 }
@@ -75,7 +72,7 @@
 .status-commit {
     display: flex;
     align-items: center;
-    color: var(--text-muted);               /* was #9499b0 */
+    color: var(--text-muted);
 }
 
 .status-links {
@@ -86,14 +83,14 @@
 }
 
 .status-links a {
-    color: var(--text-muted);               /* was #62667d */
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
 }
 
 .status-links a:hover {
-    color: var(--accent-pink, #ff758f); /* Matches the brand accent highlights on active hover states */
+    color: var(--accent-pink, #ff758f);
     transform: translateY(-1px);
 }
 

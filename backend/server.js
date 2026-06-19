@@ -92,11 +92,11 @@ app.get("/api/repos", async (req, res) => {
 
 app.get("/api/languages", async (req, res) => {
     try {
-        // GraphQL: fetch language breakdown across your top repos in one request
+        // GraphQL: fetch language breakdown across your first 100 repos in one request
         const query = `
             query ($username: String!) {
                 user(login: $username) {
-                    repositories(first: 20, orderBy: { field: PUSHED_AT, direction: DESC }, privacy: PUBLIC, isFork: false) {
+                    repositories(first: 100, orderBy: { field: PUSHED_AT, direction: DESC }, privacy: PUBLIC, isFork: false) {
                         nodes {
                             languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
                                 edges {
@@ -128,7 +128,6 @@ app.get("/api/languages", async (req, res) => {
         const { data, errors } = await response.json();
         if (errors) return res.status(500).json({ error: errors[0].message });
 
-        // Aggregate byte sizes across all repos per language
         const totals = {};
         for (const repo of data.user.repositories.nodes) {
             for (const { size, node } of repo.languages.edges) {
@@ -141,7 +140,6 @@ app.get("/api/languages", async (req, res) => {
 
         const grandTotal = Object.values(totals).reduce((sum, l) => sum + l.size, 0);
 
-        // Sort languages by size in descending order nad keep the top 6 to compute percentages
         const languages = Object.entries(totals)
             .sort((a, b) => b[1].size - a[1].size)
             .slice(0, 6)

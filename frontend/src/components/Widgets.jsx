@@ -14,16 +14,14 @@ function ThemeWidget() {
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", activeTheme);
-    }, []); // runs once on mount
+    }, []);
 
-    // Pick the right palette based on active theme
     const currentPalette = activeTheme === "Latte" ? latteAccentColors : accentColors;
 
     function applyTheme(themeName, accent) {
         const vars = themes[themeName];
         if (!vars) return;
 
-        // When switching TO or FROM Latte, remap accent to equivalent index
         const fromPalette = activeTheme === "Latte" ? latteAccentColors : accentColors;
         const toPalette   = themeName    === "Latte" ? latteAccentColors : accentColors;
         const currentIndex = fromPalette.indexOf(activeAccent);

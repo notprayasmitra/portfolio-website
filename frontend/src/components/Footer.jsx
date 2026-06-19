@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaCopyright, FaCodeCommit } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
-import { LuClock } from "react-icons/lu"; // Cleaner outline clock to match the image
+import { LuClock } from "react-icons/lu";
 
 import "../styles/footer.css";
 
@@ -15,7 +15,7 @@ function Footer() {
             const now = new Date();
             const h = String(now.getHours()).padStart(2, "0");
             const m = String(now.getMinutes()).padStart(2, "0");
-            const s = String(now.getSeconds()).padStart(2, "0"); // Image shows seconds!
+            const s = String(now.getSeconds()).padStart(2, "0");
             setTime(`${h}:${m}:${s}`);
         };
         tick();
