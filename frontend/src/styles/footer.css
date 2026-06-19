@@ -105,3 +105,17 @@
     0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 6px #81c784); }
     50% { opacity: 0.45; filter: drop-shadow(0 0 1px #81c784); }
 }
+
+[data-theme="Latte"] .status-dot {
+    background: #2d9e4f;
+    box-shadow: 0 0 8px #2d9e4f;
+}
+
+@keyframes status-glow-latte {
+    0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 6px #2d9e4f); }
+    50% { opacity: 0.45; filter: drop-shadow(0 0 1px #2d9e4f); }
+}
+
+[data-theme="Latte"] .status-dot {
+    animation: status-glow-latte 2.5s ease-in-out infinite;
+}
