@@ -53,3 +53,4 @@ export const accentColors = [
     "#f4dbd6", // rosewater
     "#b8baba", // white
 ];
+
