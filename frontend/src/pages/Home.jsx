@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/pages/home.css";
 import "../styles/components/featured-projects.css";
 import "../styles/components/tech-stack.css";
@@ -7,20 +8,24 @@ import { Link } from "react-router-dom";
 
 import {
   SiJavascript,
-  SiTypescript,
+  SiCplusplus,
   SiReact,
   SiNodedotjs,
   SiExpress,
   SiMongodb,
   SiGit,
+  SiNumpy,
+  SiStreamlit,
+  SiDocker,
+  SiBetterauth,
   SiPython,
   SiSupabase,
+  SiPandas,
   SiPostgresql,
+  SiTailwindcss,
   SiMysql,
   SiNextdotjs,
-  SiFlask,
 } from "react-icons/si"
-import { FaJava } from "react-icons/fa"
 
 import { personalLinks, experiences, featuredProjects, achievements, responsibilities } from "../data";
 
@@ -28,23 +33,54 @@ import GitHubWidgets from "../components/GitHubWidgets";
 import Widgets from "../components/Widgets";
 
 const stack = [
+    { label: "C++", icon: <SiCplusplus /> },
     { label: "JavaScript", icon: <SiJavascript /> },
-    { label: "TypeScript", icon: <SiTypescript /> },
-    { label: "React", icon: <SiReact /> },
     { label: "Node.js", icon: <SiNodedotjs /> },
     { label: "Express", icon: <SiExpress /> },
-    { label: "MongoDB", icon: <SiMongodb /> },
-    { label: "Git", icon: <SiGit /> },
+    { label: "BetterAuth", icon: <SiBetterauth /> },
+    { label: "React", icon: <SiReact /> },
+    { label: "Next.js", icon: <SiNextdotjs /> },
+    { label: "Tailwind CSS", icon: <SiTailwindcss /> },
     { label: "Python", icon: <SiPython /> },
+    { label: "Numpy", icon: <SiNumpy /> },
+    { label: "Pandas", icon: <SiPandas /> },
+    { label: "Streamlit", icon: <SiStreamlit /> },
     { label: "Supabase", icon: <SiSupabase /> },
     { label: "PostgreSQL", icon: <SiPostgresql /> },
-    { label: "MySQL", icon: <SiMysql /> },
-    { label: "Next.js", icon: <SiNextdotjs /> },
-    { label: "Java", icon: <FaJava /> },
-    { label: "Flask", icon: <SiFlask /> },
-]
+    { label: "MySQL", icon: <SiMysql size={32} /> },
+    { label: "MongoDB", icon: <SiMongodb /> },
+    { label: "Git", icon: <SiGit /> },
+    { label: "Docker", icon: <SiDocker /> },
+];
+
+const stackCategorized = [
+    {
+        category: "Languages",
+        items: ["C++", "JavaScript", "Python"],
+    },
+    {
+        category: "Web Frameworks",
+        items: ["Tailwind CSS", "React", "Next.js", "Node.js","Express", "BetterAuth"],
+    },
+    {
+        category: "Libraries",
+        items: ["Numpy", "Pandas", "Streamlit"],
+    },
+    {
+        category: "Databases",
+        items: ["Supabase", "MongoDB", "PostgreSQL", "MySQL"],
+    },
+    {
+        category: "Tools",
+        items: ["Git", "Docker"],
+    },
+];
+
+const stackMap = Object.fromEntries(stack.map(s => [s.label, s.icon]));
 
 function Home() {
+  const [organizedView, setOrganizedView] = useState(false);
+
   return (
     <main className="page">
         <section className="hero">
@@ -63,43 +99,42 @@ function Home() {
             </div>
         </section>
         <section className="tech-section">
-            <div className="section-heading">
+            <div className="section-heading tech-section-heading">
                 <h2>What I work with</h2>
+                <button
+                    className={`view-toggle-btn ${organizedView ? "active" : ""}`}
+                    onClick={() => setOrganizedView(prev => !prev)}
+                >
+                    {organizedView ? "Simple view" : "Organized view"}
+                </button>
             </div>
 
-            {/* Layout for basic flex */}
-            
-            <div className="tech-stack">
-                {stack.map((item) => (
-                    <div key={item.label} className="tech-item">
-                        {item.icon}
-                        <span>{item.label}</span>
-                    </div>
-                ))}
-            </div>
-            
-            {/* Layout for 7-column grid */}
-
-            {/*
-            <div className="tech-stack">
-                <div className="tech-row">
-                    {stack.slice(0, 7).map((item) => (
-                    <div key={item.label} className="tech-item">
-                        {item.icon}
-                        <span>{item.label}</span>
-                    </div>
+            {!organizedView ? (
+                <div className="tech-stack">
+                    {stack.map((item) => (
+                        <div key={item.label} className="tech-item">
+                            {item.icon}
+                            <span>{item.label}</span>
+                        </div>
                     ))}
                 </div>
-                <div className="tech-row">
-                    {stack.slice(7).map((item) => (
-                    <div key={item.label} className="tech-item">
-                        {item.icon}
-                        <span>{item.label}</span>
-                    </div>
+            ) : (
+                <div className="tech-organized">
+                    {stackCategorized.map(({ category, items }) => (
+                        <div key={category} className="tech-category">
+                            <span className="tech-category-label">{category}:</span>
+                            <div className="tech-category-items">
+                                {items.map(label => (
+                                    <div key={label} className="tech-pill">
+                                        <span className="tech-pill-icon">{stackMap[label]}</span>
+                                        {label}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     ))}
                 </div>
-            </div>
-            */}
+            )}
         </section>
         <section className="exp-section">
             <div className="section-heading">
