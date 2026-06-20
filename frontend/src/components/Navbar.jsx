@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.css";
+import { ThemeWidget } from "./Widgets";
 
 const navLinks = [
     { label: "Home", path: "/" },
@@ -80,6 +81,10 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
+                
+                <div className="sidebar-theme-wrapper mobile-only-theme">
+                    <ThemeWidget className="sidebar-theme-widget" />
+                </div>
             </aside>
         </>
     );

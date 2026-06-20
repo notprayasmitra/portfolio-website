@@ -1,5 +1,5 @@
 .projects-page-container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 2rem 1.5rem 6rem 1.5rem;
 }
@@ -104,13 +104,13 @@
 
 .traffic-lights {
   display: flex;
-  gap: 5px;
+  gap: 0.3rem;
   align-items: center;
 }
 
 .traffic-lights span {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
 }
 
@@ -170,13 +170,13 @@
   border-radius: 8px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .projects-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 42.5em) {
   .projects-gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -292,7 +292,7 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     z-index: 50;
-    max-height: 220px;
+    max-height: 13.75rem;
     overflow-y: auto;
 }
 

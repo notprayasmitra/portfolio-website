@@ -10,7 +10,8 @@
 
 .hero-bio {
   color: var(--text-muted);
-  max-width: 730px;
+  width: 100%;
+  max-width: 45.625rem;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }

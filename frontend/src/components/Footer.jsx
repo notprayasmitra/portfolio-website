@@ -34,16 +34,16 @@ function Footer() {
                 </div>
                 
                 <div className="status-right">
-                    <span className="status-clock">
+                    <span className="status-clock mobile-hide">
                         <LuClock size={14} className="icon-offset" /> {time}
                     </span>
-                    <span className="status-sep">|</span>
-                    <span className="status-views">{views} views</span>
-                    <span className="status-sep">|</span>
-                    <span className="status-commit">
+                    <span className="status-sep mobile-hide">|</span>
+                    <span className="status-views mobile-hide">{views} views</span>
+                    <span className="status-sep mobile-hide">|</span>
+                    <span className="status-commit mobile-hide">
                         <FaCodeCommit size={13} className="icon-offset" /> e6bced2
                     </span>
-                    <span className="status-sep">|</span>
+                    <span className="status-sep mobile-hide">|</span>
                     <div className="status-links">
                         <a href="https://github.com/notprayasmitra" target="_blank" rel="noreferrer"><FaGithub size={14} /></a>
                         <a href="https://linkedin.com/in/notprayasmitra" target="_blank" rel="noreferrer"><FaLinkedin size={14} /></a>

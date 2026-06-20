@@ -10,7 +10,7 @@
     gap: 2.5rem;
     min-height: 85vh;
     align-items: center;
-    max-width: 1250px;
+    max-width: 78.125rem;
     margin: 0 auto;
     padding: 2rem;
     overflow: hidden;
@@ -31,9 +31,9 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    max-width: 200px;
+    max-width: 12.5rem;
     height: 100%;
-    min-height: 400px;
+    min-height: 25rem;
 }
 
 .timeline-svg {
@@ -214,7 +214,7 @@
     transform-origin: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
     .exp-page-layout {
         grid-template-columns: 1fr;
         padding: 1rem;
@@ -231,7 +231,7 @@
 
 .exp-side-metrics {
     width: 100%;
-    max-width: 220px;
+    max-width: 13.75rem;
     padding-top: 1.5rem;
     border-top: 1px dashed var(--border, #222235);
     display: flex;

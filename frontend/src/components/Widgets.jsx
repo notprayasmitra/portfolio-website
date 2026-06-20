@@ -4,7 +4,7 @@ import { FaCalendar, FaLocationArrow, FaSun, FaMoon, FaPalette } from "react-ico
 import "../styles/components/homepage-widgets.css";
 import { themes, accentColors, latteAccentColors } from "../data/themes";
 
-function ThemeWidget() {
+export function ThemeWidget({ className = "" }) {
     const [activeTheme, setActiveTheme] = useState(() =>
         typeof window !== "undefined" ? localStorage.getItem("theme") || "Mocha" : "Mocha"
     );
@@ -43,7 +43,7 @@ function ThemeWidget() {
     }
 
     return (
-        <div className="widget-small">
+        <div className={`widget-small ${className}`}>
             <p className="widget-title"><FaPalette /> Theme</p>
             <div className="theme-tabs">
                 <div className="theme-tabs-row">
@@ -149,11 +149,11 @@ function LocationWidget() {
     );
 }
 
-function Widgets() {
+export default function Widgets() {
     return (
         <div className="widgets-wrapper">
             <div className="widgets-top-row">
-                <ThemeWidget />
+                <ThemeWidget className="desktop-theme-widget" />
 
                 <div className="widget-small">
                     <p className="widget-title"><FaCalendar /> Let's Connect</p>
@@ -174,5 +174,3 @@ function Widgets() {
         </div>
     );
 }
-
-export default Widgets;

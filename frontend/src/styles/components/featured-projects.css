@@ -32,6 +32,12 @@
   gap: 1.2rem;
 }
 
+@media (max-width: 48em) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .project-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
@@ -57,13 +63,13 @@
 
 .traffic-lights {
   display: flex;
-  gap: 5px;
+  gap: 0.3rem;
   align-items: center;
 }
 
 .traffic-lights span {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
 }
 

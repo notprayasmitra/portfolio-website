@@ -191,7 +191,7 @@ function LatestReposWidget() {
 
 function GitHubWidgets() {
     return (
-        <section className="widgets-section">
+        <section className="widgets-section github-hide-mobile">
             <div className="widgets-grid">
                 <RecentCommitsWidget />
                 <LatestReposWidget />
