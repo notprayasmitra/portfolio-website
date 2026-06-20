@@ -27,7 +27,7 @@ function Footer() {
         <footer className="status-footer-container">
             <div className="status-footer">
                 <div className="status-left">
-                    <span className="status-copy"><FaCopyright size={11}/> 2026 Prayas Mitra</span>
+                    <span className="status-copy"><FaCopyright size={13}/>2026 Prayas Mitra</span>
                 </div>
                 
                 <div className="status-right">

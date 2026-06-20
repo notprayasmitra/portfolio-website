@@ -17,17 +17,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: 2rem; /* Give space for the left-aligned spine */
 }
 
-.timeline-spine {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--border);
-  z-index: 1;
+.timeline-spine,
+.timeline-spacer {
+  display: none;
 }
 
 .timeline-container {
@@ -40,26 +34,63 @@
   display: flex;
   position: relative;
   width: 100%;
-  flex-direction: column; /* Stack vertically instead of side-by-side */
-}
-
-/* Kept for React structural matching, but stripped of split logic */
-.row-reverse {
-  flex-direction: column;
 }
 
 .timeline-block {
   position: relative;
-  flex: 1 1 100%;
+  flex: 0 0 100%;
   width: 100%;
   max-width: 100%;
-  padding: 1rem 1rem 2rem 2.5rem; /* Left padding creates space from the spine */
   box-sizing: border-box;
 }
 
-.timeline-spacer {
-  display: none; /* Spacer is no longer needed for a full-width layout */
+.row-normal .timeline-block {
+  border-left: 4px solid var(--accent-purple);
+  border-bottom: 4px solid var(--accent-purple);
+  border-top: none;
+  border-right: none;
+  padding: 2.5rem 2rem 4rem 4.5rem;
 }
+
+.row-reverse .timeline-block {
+  border-right: 4px solid var(--accent-purple);
+  border-bottom: 4px solid var(--accent-purple);
+  border-top: none;
+  border-left: none;
+  padding: 2.5rem 4.5rem 4rem 2rem;
+}
+
+.timeline-row:last-child .timeline-block {
+  border-bottom: none;
+}
+
+.timeline-node {
+  position: absolute;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: var(--bg-secondary);
+  color: var(--accent-pink);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  z-index: 10;
+  top: 50%;
+}
+
+.row-normal .timeline-node {
+  left: 0;
+  transform: translate(-45%, -50%);
+}
+
+.row-reverse .timeline-node {
+  right: 0;
+  transform: translate(45%, -50%);
+}
+
 
 .timeline-block-title {
   font-size: 1.5rem;
@@ -97,33 +128,6 @@
 
 .timeline-link:hover {
   color: var(--accent-pink);
-}
-
-/* Standardized border treatment since all items align to the left spine */
-.row-normal .timeline-block,
-.row-reverse .timeline-block {
-  border-left: 2px solid var(--accent-pink);
-  border-right: none;
-  border-bottom: none;
-}
-
-.timeline-node {
-  position: absolute;
-  width: 2.25rem;
-  height: 2.25rem;
-  background-color: var(--bg-secondary);
-  color: var(--accent-pink);
-  border: 2px solid var(--border);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-  z-index: 10;
-  top: 1.5rem; /* Anchor nodes neatly near the block headers */
-  left: 0;
-  transform: translate(-50%, 0);
 }
 
 .about-main-title {
@@ -196,7 +200,6 @@
   opacity: 0.5;
 }
 
-/* Responsiveness adjustments for smaller devices */
 @media (max-width: 48em) {
   .about-main-title {
     font-size: 1.75rem;
@@ -239,13 +242,17 @@
     padding-left: 1rem;
   }
 
-  .timeline-spine {
-    display: none;
+  .timeline-row,
+  .row-reverse {
+    flex-direction: column;
   }
 
   .row-normal .timeline-block,
   .row-reverse .timeline-block {
-    padding: 1rem 1rem 1rem 2.25rem;
+    border-left: 2px solid var(--accent-pink);
+    border-right: none;
+    border-bottom: none;
+    padding: 1rem 1rem 1rem 2.5rem;
     margin-bottom: 0.5rem;
   }
 
@@ -254,7 +261,10 @@
   }
 
   .timeline-node {
+    left: 0 !important;
+    right: auto !important;
     top: 1.35rem;
+    transform: translate(-50%, 0) !important;
     width: 1.85rem;
     height: 1.85rem;
     font-size: 0.75rem;

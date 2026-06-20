@@ -37,7 +37,10 @@
 }
 
 .status-copy {
-    color: var(--accent-purple)
+    color: var(--accent-purple);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .status-sep {
