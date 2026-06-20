@@ -8,6 +8,8 @@ import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 import { themes } from "./data";
 
 import "./App.css";
@@ -32,6 +34,7 @@ function App() {
   
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
