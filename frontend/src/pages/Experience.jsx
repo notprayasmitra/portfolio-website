@@ -179,6 +179,9 @@ function Experience() {
         track.addEventListener("scroll", handleScroll, { passive: true });
 
         const handleWheel = (e) => {
+            const isMobile = window.matchMedia("(max-width: 48em)").matches;
+            if (isMobile) return;
+
             if (e.deltaY !== 0) {
                 e.preventDefault();
                 track.scrollBy({

@@ -37,3 +37,21 @@
 .tech-item svg {
   font-size: 1.2rem;
 }
+
+@media (max-width: 48em) {
+  .tech-section {
+    margin-top: 2rem;
+  }
+
+  .tech-stack {
+    gap: 0.75rem 1rem;
+  }
+
+  .tech-item {
+    font-size: 0.82rem;
+  }
+
+  .tech-item svg {
+    font-size: 1rem;
+  }
+}

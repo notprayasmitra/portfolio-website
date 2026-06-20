@@ -33,8 +33,16 @@
 }
 
 @media (max-width: 48em) {
+  .featured-section {
+    margin-top: 2.5rem;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1rem;
   }
 }
 

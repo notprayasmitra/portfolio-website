@@ -208,7 +208,7 @@ function Home() {
                 ))}
             </div>
         </section>
-        <section className="widgets-section">
+        <section className="widgets-section dashboard-section">
             <div className="widgets-layout">
                 <div className="section-heading">
                     <h2>Dashboard</h2>

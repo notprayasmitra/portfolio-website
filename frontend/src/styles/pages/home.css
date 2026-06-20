@@ -262,4 +262,105 @@
     border: none;
     border-top: 2px solid var(--border);
     margin: 0;
+    min-width: 1rem;
+}
+
+@media (max-width: 48em) {
+    .hero h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-bio {
+        font-size: 0.88rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-links {
+        flex-wrap: wrap;
+        gap: 0.65rem 0.85rem;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .about-link {
+        display: none;
+    }
+
+    .section-heading {
+        gap: 1rem;
+    }
+
+    .section-heading h2 {
+        font-size: 1.15rem;
+        white-space: normal;
+    }
+
+    .exp-section,
+    .featured-section,
+    .responsibilities-section,
+    .achievements-section {
+        margin-top: 2.5rem;
+    }
+
+    .timeline-item {
+        padding: 0.85rem 1rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+
+    .responsibility-item {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .responsibility-left {
+        display: none;
+    }
+
+    .responsibility-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .achievement-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .achievement-links {
+        flex-wrap: wrap;
+        gap: 0.65rem;
+    }
+
+    .featured-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .featured-header h2 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 30em) {
+    .hero h1 {
+        font-size: 1.35rem;
+    }
+
+    .hero-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem 0.85rem;
+    }
+
+    .hero-links a {
+        width: auto;
+    }
 }

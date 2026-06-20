@@ -78,6 +78,7 @@
     top: 0;
     right: 0;
     height: 100vh;
+    height: 100dvh;
     width: 15rem;
     max-width: 80vw;
     background-color: var(--bg-secondary);
@@ -89,6 +90,9 @@
     flex-direction: column;
     padding: 1.5rem;
     box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sidebar.open {
@@ -115,6 +119,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    flex-shrink: 0;
 }
 
 .sidebar-brand {
@@ -143,6 +148,7 @@
     gap: 0.2rem;
     padding: 0;
     margin: 0;
+    flex-shrink: 0;
 }
 
 .sidebar-links a {
@@ -168,72 +174,130 @@
 /* Mobile breakpoint */
 @media (max-width: 48em) {
     .navbar {
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .navbar-brand {
+        font-size: 0.85rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: calc(100% - 2.5rem);
     }
 
     .navbar-links {
-        display: none; /* hide desktop links */
+        display: none;
     }
 
     .navbar-hamburger {
-        display: flex; /* show hamburger */
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .sidebar {
+        padding: 1.25rem;
+    }
+
+    .sidebar-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .sidebar-theme-wrapper {
+        padding-top: 0.85rem;
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0));
+    }
+
+    .sidebar-theme-widget .theme-tab,
+    .sidebar-theme-widget .theme-tab-full {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.78rem;
+    }
+
+    .sidebar-theme-widget .accent-grid {
+        gap: 0.35rem;
+    }
+}
+
+@media (max-width: 30em) {
+    .navbar {
+        padding: 0.85rem 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 0.8rem;
     }
 }
 
 .sidebar-theme-wrapper {
     margin-top: auto;
     padding-top: 1rem;
+    padding-bottom: env(safe-area-inset-bottom, 0);
     border-top: 1px solid var(--border);
+    flex-shrink: 0;
+    width: 100%;
+    min-height: min-content;
 }
 
 .sidebar-theme-widget {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
-    gap: 0.5rem !important;
+    gap: 0.75rem !important;
+    overflow: visible !important;
+    min-height: min-content;
 }
 
 .sidebar-theme-widget .widget-title {
     font-size: 0.8rem;
     color: var(--text-muted);
+    margin-bottom: 0.15rem;
 }
 
-.sidebar-theme-widget .theme-tabs-row {
-    flex-wrap: wrap;
-}
-
-.sidebar-theme-widget .theme-tab {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
-}
-
-.sidebar-theme-widget .accent-swatch {
-    width: 0.8rem;
-    height: 0.8rem;
-}
-.sidebar-theme-wrapper {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-}
-
-.sidebar-theme-widget {
-}
-
-.sidebar-theme-widget .widget-title {
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.sidebar-theme-widget .theme-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .sidebar-theme-widget .theme-tabs-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
-.sidebar-theme-widget .theme-tab {
+.sidebar-theme-widget .theme-tab,
+.sidebar-theme-widget .theme-tab-full {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.8rem;
+    text-align: left;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.sidebar-theme-widget .theme-tab.active,
+.sidebar-theme-widget .theme-tab-full.active {
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
+    background-color: var(--bg-primary);
+}
+
+.sidebar-theme-widget .accent-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
 }
 
 .sidebar-theme-widget .accent-swatch {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    min-height: 0;
 }
-

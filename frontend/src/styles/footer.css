@@ -120,7 +120,40 @@
 }
 
 @media (max-width: 48em) {
-    .mobile-hide {
-        display: none !important;
+    .status-footer-container {
+        padding: 0.75rem;
+    }
+
+    .status-footer {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0.85rem;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+        min-height: auto;
+    }
+
+    .status-left,
+    .status-right {
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    .status-copy {
+        white-space: nowrap;
+    }
+
+    .status-clock,
+    .status-views,
+    .status-commit,
+    .status-right > .status-sep {
+        display: none;
+    }
+
+    .status-links {
+        margin-left: 0;
+        gap: 0.65rem;
     }
 }
