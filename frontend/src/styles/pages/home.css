@@ -278,14 +278,14 @@
 
     .hero-links {
         flex-wrap: wrap;
-        gap: 0.65rem 0.85rem;
-    }
-
-    .divider {
-        display: none;
+        gap: 0.65rem 0.75rem;
     }
 
     .hero-links .about-link {
+        display: none;
+    }
+
+    .hero-links .divider:last-of-type {
         display: none;
     }
 
