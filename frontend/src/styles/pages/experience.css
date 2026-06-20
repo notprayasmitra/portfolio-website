@@ -200,7 +200,7 @@
     border-radius: 6px;
     font-size: 0.78rem;
     border: 1px solid var(--border, #222235);
-    color: var(--text-secondary, #9ca3af);
+    color: var(--text-muted, #9ca3af);
     font-family: monospace;
 }
 
@@ -295,6 +295,10 @@
         line-height: 1.35;
     }
 
+    .promotion-dot {
+        margin-top: calc(0.78rem * 1.35 / 2 - 6px);
+    }
+
     .promotion-since {
         font-size: 0.7rem;
     }
@@ -355,7 +359,7 @@
 
 .metric-text {
     font-size: 0.8rem;
-    color: var(--text-muted, #7c7c93);
+    color: var(--text-muted);
     line-height: 1.4;
     margin: 0;
 }
@@ -369,8 +373,8 @@
 .sector-chip {
     font-size: 0.68rem;
     font-family: monospace;
-    background: rgba(168, 255, 120, 0.03);
-    border: 1px solid rgba(168, 255, 120, 0.15);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
     color: var(--accent-pink);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -462,10 +466,6 @@
     width: 12px;
 }
 
-.promotion-row:first-child .promotion-marker {
-    padding-top: 0.35rem;
-}
-
 .promotion-dot {
     width: 8px;
     height: 8px;
@@ -473,6 +473,7 @@
     border: 2px solid var(--border, #222235);
     background: var(--bg-secondary, #13131e);
     flex-shrink: 0;
+    margin-top: calc(0.82rem * 1.3 / 2 - 6px);
 }
 
 .promotion-dot--current {
@@ -495,7 +496,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: left;
     min-width: 0;
     gap: 0.2rem;
@@ -508,14 +509,14 @@
 
 .promotion-role {
     font-size: 0.82rem;
-    color: var(--text-secondary, #d1d5db);
+    color: var(--text-primary);
     font-weight: 500;
     line-height: 1.3;
 }
 
 .promotion-since {
     font-size: 0.75rem;
-    color: var(--text-muted, #6b7280);
+    color: var(--text-muted);
     font-family: monospace;
     white-space: nowrap;
     flex-shrink: 0;
