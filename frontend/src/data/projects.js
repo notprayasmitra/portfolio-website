@@ -28,7 +28,7 @@ export const allProjects = [
     name: "folder-color-switcher", 
     repoOwner: "notprayasmitra", 
     description: "A TUI app written in Rust, that uses the papirus-folders package in Arch to switch folder colors.",  
-    tags: ["Rust", "Bash", "Shell Scripting"], 
+    tags: ["Rust", "Bash", "Shell Scripts"], 
     link: "https://github.com/notprayasmitra/folder-color-switcher" 
   },
   { 
@@ -57,14 +57,6 @@ export const allProjects = [
   },
   { 
     id: 8, 
-    name: "ml-based-ddos-mitigation", 
-    repoOwner: "notprayasmitra", 
-    description: "A dummy software to mimick DDoS attacks on webpages in real-time.", 
-    tags: ["Python", "Network Security"],
-    link: "https://github.com/notprayasmitra/ml-based-ddos-mitigation" 
-  },
-  { 
-    id: 9, 
     name: "emp-aspnet", 
     repoOwner: "notprayasmitra", 
     description: "An employee management application built with ASP.NET and C#, and with SOAP API endpoints having MySQL database integration.", 
@@ -72,7 +64,7 @@ export const allProjects = [
     link: "https://github.com/notprayasmitra/emp-aspnet" 
   },
   { 
-    id: 10, 
+    id: 9, 
     name: "student-dashboard", 
     repoOwner: "notprayasmitra", 
     description: "A student management dashboard built with React and Tailwind CSS, and having authentication and authorization features with Supabase.", 
@@ -80,7 +72,7 @@ export const allProjects = [
     link: "https://github.com/notprayasmitra/student-dashboard" 
   },
   { 
-    id: 11, 
+    id: 10, 
     name: "Gfg-Hackathon", 
     repoOwner: "notprayasmitra", 
     description: "A hackathon website built with React and Tailwind CSS, featuring interactive components and smooth animations.", 
@@ -88,7 +80,7 @@ export const allProjects = [
     link: "https://github.com/notprayasmitra/Gfg-Hackathon" 
   },
   { 
-    id: 12, 
+    id: 11, 
     name: "devtrails-hackathon", 
     repoOwner: "notprayasmitra", 
     description: "A hackathon project built with React, Tailwind CSS, and Streamlit, featuring data visualization and interactive dashboards.", 
@@ -96,7 +88,7 @@ export const allProjects = [
     link: "https://github.com/notprayasmitra/devtrails-hackathon" 
   },
   { 
-    id: 13, 
+    id: 12, 
     name: "nxtgen-website", 
     repoOwner: "notprayasmitra", 
     description: "A modern website built with React and Next.js, featuring a sleek design and responsive layout.", 
