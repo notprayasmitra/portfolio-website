@@ -39,7 +39,7 @@
 
 @media (max-width: 48em) {
   .widgets-top-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .github-hide-mobile {
@@ -51,7 +51,7 @@
   }
 
   .widgets-top-row .widget-small:last-child {
-    grid-column: span 1;
+    grid-column: 1 / -1;
   }
 
   .widgets-grid {
@@ -65,12 +65,12 @@
 
 @media (max-width: 30em) {
   .widgets-top-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 0.8rem;
   }
 
   .widgets-top-row .widget-small {
-    grid-column: span 1;
+    grid-column: 1 / -1;
     padding: 0.8rem;
     gap: 0.5rem;
   }

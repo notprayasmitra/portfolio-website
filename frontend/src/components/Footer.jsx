@@ -28,9 +28,6 @@ function Footer() {
             <div className="status-footer">
                 <div className="status-left">
                     <span className="status-copy"><FaCopyright size={11}/> 2026 Prayas Mitra</span>
-                    <span className="status-sep">|</span>
-                    <span className="status-indicator">
-                    <span className="status-dot" /> All Services Nominal</span>
                 </div>
                 
                 <div className="status-right">
