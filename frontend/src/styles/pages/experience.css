@@ -76,7 +76,7 @@
 
 .exp-right-title {
     font-size: 2.5rem;
-    color: var(--text-primary, #ffffff);
+    color: var(--text-primary);
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@
 .exp-card-number {
     font-size: 4.5rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.03);
+    color: var(--border);
     font-family: monospace;
     line-height: 1;
 }
@@ -138,7 +138,7 @@
 .exp-card-role {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--text-primary, #ffffff);
+    color: var(--text-primary);
     margin: 0;
     letter-spacing: -0.02em;
 }
@@ -158,7 +158,7 @@
 
 .exp-card-duration {
     font-size: 0.88rem;
-    color: var(--text-muted, #7c7c93);
+    color: var(--accent-purple);
 }
 
 .exp-card-desc {
@@ -173,7 +173,7 @@
 .exp-card-desc li {
     position: relative;
     padding-left: 1.25rem;
-    color: var(--text-secondary, #d1d5db);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
