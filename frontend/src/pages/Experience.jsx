@@ -22,11 +22,6 @@ const experienceData = [
         org: "Noctalia",
         orgUrl: "https://noctalia.dev/",
         duration: "Jan 2026 - May 2026",
-        promotions: [
-            { role: "Role 1", since: "Jun 2026 - Present" },
-            { role: "Role 2", since: "Mar 2026 - Jun 2026" },
-            { role: "Role 3", since: "Jan 2026 - Feb 2026" },
-        ],
         description: [
             "Developed and deployed a Pomodoro plugin written in Quickshell utilizing the custom modules of Noctalia Shell.",
             "Integrated features such as - cutomizable sessions of productivity, custom alarm sound and duration, and much more.",
@@ -41,8 +36,7 @@ const experienceData = [
         orgUrl: "https://mvp.microsoft.com/en-US/studentambassadors",
         duration: "Jan 2026 - Present",
         promotions: [
-            { role: "Senior Student Ambassdor", since: "Jun 2026 - Present" },
-            { role: "Associate Student Ambassdor", since: "Mar 2026 - Jun 2026" },
+            { role: "Associate Student Ambassdor", since: "Feb 2026 - Present" },
             { role: "Student Ambassdor", since: "Jan 2026 - Feb 2026" },
         ],
         description: [
