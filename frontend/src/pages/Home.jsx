@@ -17,7 +17,7 @@ import {
   SiNumpy,
   SiStreamlit,
   SiDocker,
-  SiBetterauth,
+  SiGithub,
   SiPython,
   SiSupabase,
   SiPandas,
@@ -37,7 +37,6 @@ const stack = [
     { label: "JavaScript", icon: <SiJavascript /> },
     { label: "Node.js", icon: <SiNodedotjs /> },
     { label: "Express", icon: <SiExpress /> },
-    { label: "BetterAuth", icon: <SiBetterauth /> },
     { label: "React", icon: <SiReact /> },
     { label: "Next.js", icon: <SiNextdotjs /> },
     { label: "Tailwind CSS", icon: <SiTailwindcss /> },
@@ -50,6 +49,7 @@ const stack = [
     { label: "MySQL", icon: <SiMysql size={32} /> },
     { label: "MongoDB", icon: <SiMongodb /> },
     { label: "Git", icon: <SiGit /> },
+    { label: "GitHub", icon: <SiGithub /> },
     { label: "Docker", icon: <SiDocker /> },
 ];
 
@@ -60,7 +60,7 @@ const stackCategorized = [
     },
     {
         category: "Web Frameworks",
-        items: ["Tailwind CSS", "React", "Next.js", "Node.js","Express", "BetterAuth"],
+        items: ["Tailwind CSS", "React", "Next.js", "Node.js","Express"],
     },
     {
         category: "Libraries",
@@ -72,7 +72,7 @@ const stackCategorized = [
     },
     {
         category: "Tools",
-        items: ["Git", "Docker"],
+        items: ["Git", "GitHub","Docker"],
     },
 ];
 
@@ -105,7 +105,7 @@ function Home() {
                     className={`view-toggle-btn ${organizedView ? "active" : ""}`}
                     onClick={() => setOrganizedView(prev => !prev)}
                 >
-                    {organizedView ? "Simple view" : "Organized view"}
+                    {organizedView ? "Organized view" : "Simple view"}
                 </button>
             </div>
 
