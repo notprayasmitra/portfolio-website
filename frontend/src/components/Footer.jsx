@@ -29,7 +29,6 @@ function Footer() {
                 <div className="status-left">
                     <span className="status-copy"><FaCopyright size={13}/>2026 Prayas Mitra</span>
                 </div>
-                
                 <div className="status-right">
                     <span className="status-clock">
                         <LuClock size={14} className="icon-offset" /> {time}
