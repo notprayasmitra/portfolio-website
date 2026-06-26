@@ -91,9 +91,9 @@ function LocationWidget() {
     }, []);
 
     const tileUrl = currentTheme === "Latte"
-        ? "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-        : "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png";
-
+        ? "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        : "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+    
     useEffect(() => {
         const update = () => {
             const now = new Date();
@@ -135,7 +135,11 @@ function LocationWidget() {
                     <TileLayer
                         key={tileUrl}
                         url={tileUrl}
-                        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>'
+                        attribution={
+                            currentTheme === "Latte"
+                            ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            : '&copy; <a href="https://carto.com/">CARTO</a>'
+                        }
                     />
                 </MapContainer>
             </div>
