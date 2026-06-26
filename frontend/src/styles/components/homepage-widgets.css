@@ -438,11 +438,11 @@
     z-index: 0;
     border-radius: 8px;
     background: var(--bg-secondary);
-    filter: brightness(0.85) contrast(1.1);
+    filter: brightness(1.4) contrast(0.9) invert(1) hue-rotate(180deg);
 }
 
 [data-theme="Latte"] .location-map-wrapper .leaflet-container {
-    filter: brightness(1.05) contrast(0.95) saturate(0.9) grayscale(0.15);
+    filter: brightness(1.05) contrast(0.95) saturate(0.7) grayscale(0.2);
 }
 
 .location-footer {
