@@ -4,8 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 3001;
-app.use(cors({ origin: "http://localhost:3000" }));
+const PORT = process.env.PORT || 3001;
+app.use(cors({ 
+    origin: process.env.FRONTEND_URL || "http://localhost:3000"
+}));
 
 app.get("/api/commits", async (req, res) => {
     try {
@@ -156,3 +158,4 @@ app.get("/api/languages", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.get("/health", (req, res) => res.status(200).send("OK"));
