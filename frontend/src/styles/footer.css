@@ -12,7 +12,7 @@
 
 .status-footer {
     width: 100%;
-    max-width: 75rem;
+    max-width: 65rem;
     min-height: 3.75rem;
     background-color: var(--bg-card);
     border: 1px solid var(--border);

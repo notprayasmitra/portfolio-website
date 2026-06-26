@@ -3,7 +3,7 @@ import "../styles/pages/home.css";
 import "../styles/components/featured-projects.css";
 import "../styles/components/tech-stack.css";
 
-import { FaGithub, FaLinkedin, FaReddit, FaExternalLinkAlt, FaArrowRight, FaTrophy, FaStar } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaExternalLinkAlt, FaArrowRight, FaTrophy, FaStar, FaFileContract } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import {
@@ -91,7 +91,7 @@ function Home() {
                 <span className="divider">|</span>
                 <a href={personalLinks.linkedin} target="_blank" rel="noreferrer"><FaLinkedin />LinkedIn</a>
                 <span className="divider">|</span>
-                <a href={personalLinks.reddit} target="_blank" rel="noreferrer"><FaReddit />Reddit</a>
+                <a href="/june-2026-resume.pdf" target="_blank" rel="noreferrer"><FaFileContract />Resume</a>
                 <span className="divider">|</span>
                 <Link to="/about" className="about-link">
                     More about me <FaArrowRight size={12}/>

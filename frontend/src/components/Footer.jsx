@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaCopyright, FaCodeCommit } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
+
+{/* import { FaXTwitter } from "react-icons/fa6"; */}
+
 import { LuClock } from "react-icons/lu";
 
 import "../styles/footer.css";
@@ -34,8 +36,10 @@ function Footer() {
                         <LuClock size={14} className="icon-offset" /> {time}
                     </span>
                     <span className="status-sep">|</span>
+                    {/*}
                     <span className="status-views">{views} views</span>
                     <span className="status-sep">|</span>
+                    */}
                     <span className="status-commit">
                         <FaCodeCommit size={13} className="icon-offset" /> e6bced2
                     </span>
@@ -43,7 +47,9 @@ function Footer() {
                     <div className="status-links">
                         <a href="https://github.com/notprayasmitra" target="_blank" rel="noreferrer"><FaGithub size={14} /></a>
                         <a href="https://linkedin.com/in/notprayasmitra" target="_blank" rel="noreferrer"><FaLinkedin size={14} /></a>
+                        {/* 
                         <a href="#" target="_blank" rel="noreferrer"><FaXTwitter size={14} /></a>
+                        */}
                     </div>
                 </div>
             </div>

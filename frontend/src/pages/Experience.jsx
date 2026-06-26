@@ -5,6 +5,19 @@ import { FaArrowRight } from "react-icons/fa6";
 const experienceData = [
     {
         id: 1,
+        role: "Software Engineer Intern",
+        org: "Indian Oil Corporation Ltd. (IOCL)",
+        orgUrl: "https://iocl.com",
+        duration: "May 2026 - Ongoing",
+        description: [
+            "Developed middleware, web applications and forms using ASP.NET, C#, and MySQL.",
+            "Integrated web services with databases for storage and retrieval, and hosted the same on a LAN using IIS.",
+            "Designed and maintained relational database schemas for enterprise applications, and performed database administration, query optimization, and data management tasks.",
+        ],
+        tags: [".NET", "ASP.NET", "C#", "JavaScript", "SOAP APIs", "MySQL", "MariaDB", "IIS"],
+    },
+    {
+        id: 2,
         role: "Open Source Contributor",
         org: "Noctalia",
         orgUrl: "https://noctalia.dev/",
@@ -17,7 +30,7 @@ const experienceData = [
         tags: ["Quickshell", "QML", "Shell Scripts", "Custom Modules"],
     },
     {
-        id: 2,
+        id: 3,
         role: "Associate Student Ambassador",
         org: "Microsoft",
         orgUrl: "https://mvp.microsoft.com/en-US/studentambassadors",
@@ -34,7 +47,7 @@ const experienceData = [
         tags: ["Git/GitHub", "Azure", "Leadership", "Communication", "Mentorship"],
     },
     {
-        id: 3,
+        id: 4,
         role: "Technical Co-Head",
         org: "GeeksforGeeks Student Chapter",
         orgUrl: "https://gfgsrmrmp.vercel.app",
@@ -51,7 +64,7 @@ const experienceData = [
         tags: ["React", "Node.js", "Supabase", "Leadership", "Communication", "Mentorship"],
     },
     {
-        id: 4,
+        id: 5,
         role: "Software Engineer Intern",
         org: "SAARC Masts Pvt. Ltd.",
         orgUrl: "https://www.saarcmaststech.com",
@@ -229,7 +242,7 @@ function Experience() {
                             <span className="metric-accent">Milestones</span>
                             
                             <div className="focus-sectors" style={{ marginTop: "0.5rem" }}>
-                                <span className="sector-chip">1 Internships</span>
+                                <span className="sector-chip">2 Internships</span>
                                 <span className="sector-chip">2 Leadership Initiatives</span>
                                 <span className="sector-chip">1 Open Source Contribution</span>
                             </div>
