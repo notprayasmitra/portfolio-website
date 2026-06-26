@@ -1,13 +1,18 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-app.use(cors({ 
-    origin: process.env.FRONTEND_URL || "http://localhost:3000"
-}));
+
+app.use(cors());
 
 app.get("/api/commits", async (req, res) => {
     try {
@@ -158,4 +163,11 @@ app.get("/api/languages", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
 app.get("/health", (req, res) => res.status(200).send("OK"));
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 

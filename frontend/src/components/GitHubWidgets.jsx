@@ -73,7 +73,7 @@ function RecentCommitsWidget() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/commits")
+        fetch("/api/commits")
             .then((res) => res.json())
             .then((data) => {
                 setCommits(data);
@@ -119,12 +119,12 @@ function LatestReposWidget() {
     const [hoveredLang, setHoveredLang] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/repos")
+        fetch("/api/repos")
             .then((res) => res.json())
             .then((data) => setRepos(data || []))
             .catch((err) => console.log("Error fetching repos:", err));
 
-        fetch("http://localhost:3001/api/languages")
+        fetch("/api/languages")
             .then((res) => res.json())
             .then((data) => setLanguages(data || []))
             .catch((err) => console.log("Error fetching languages:", err));

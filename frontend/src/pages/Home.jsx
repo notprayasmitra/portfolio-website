@@ -213,7 +213,7 @@ function Home() {
         </section>
         <section className="achievements-section">
             <div className="section-heading">
-                <h2>Achivements</h2>
+                <h2>Achievements</h2>
                 <hr className="section-rule" />
             </div>
             <div className="achievements-list">
