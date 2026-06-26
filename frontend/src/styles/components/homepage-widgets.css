@@ -438,7 +438,7 @@
     z-index: 0;
     border-radius: 8px;
     background: var(--bg-secondary);
-    filter: brightness(0.85) contrast(1.05);
+    filter: brightness(0.90) contrast(1.00);
 }
 
 [data-theme="Latte"] .location-map-wrapper .leaflet-container {
