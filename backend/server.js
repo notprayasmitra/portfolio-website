@@ -166,7 +166,7 @@ app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)
 
 app.get("/health", (req, res) => res.status(200).send("OK"));
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));app.get("*", (req, res) => {
+app.use(express.static(path.join(__dirname, "../frontend/dist")));app.get("*path", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
 });
 
